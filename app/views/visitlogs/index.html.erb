@@ -1,0 +1,24 @@
+<h1>Listing visitlogs</h1>
+
+<table>
+  <tr>
+    <th>uId</th>
+    <th>Ip</th>
+    <th>Last visit</th>
+  </tr>
+
+<% @visitlogs.each do |visitlog| %>
+  <tr>
+    <td><%=h visitlog.uid %></td>
+    <td><%=h visitlog.ip %></td>
+    <td><%=h visitlog.last_visit %></td>
+    <td><%= link_to 'Show', visitlog %></td>
+    <td><%= link_to 'Edit', edit_visitlog_path(visitlog) %></td>
+    <td><%= link_to 'Destroy', visitlog, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New visitlog', new_visitlog_path %>

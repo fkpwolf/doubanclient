@@ -1,0 +1,13 @@
+<% for item in @miniblogs %>
+ 
+  <div class="entry">
+
+		<div class="entry-secondary">
+			<div class="entry-title"><%=h item.author.name if item.author%></div>
+			<span class="entry-secondary-snippet">
+				<%=h item.title %>
+			</span>
+		</div>
+	
+  </div>
+<% end %>

@@ -1,0 +1,70 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div class="nav-bar-container">
+	<div class="nav-bar">
+		<table class="nav-table">
+			<tbody>
+				<tr>
+				
+					<td class="nav-table-middle">
+						<div id="nav-title">
+							<%=t :search_result%>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="nav-bar-shadow"/></div> 
+		
+		<div class="goog-menu goog-menu-vertical" style="display: none;"/>
+	</div>
+</div>
+
+<% for item in @books %>
+ 
+  <div class="entry">
+    <div class="entry-icons">
+      <div class="sta"></div>
+    </div>
+		<div class="entry-secondary">
+						<div class="entry-title"><%=h item.title %></div>
+						<span class="entry-secondary-snippet">
+									
+						</span>
+						<div class="entry-secondary-snippet"><%=h item.author.name%> | 
+							<%=h item.attribute["publisher"]%> | <%=h item.attribute["pubdate"]%>
+						</div>
+						<div class="uid"><%=h item.id%></div>
+		</div>
+		<!--can I put the data structure in other place like Google Reader? here I have to let them all hidden-->
+		<div class="link" style="display: none;"><%=h item.link["image"]%></div>
+		<div class="content" style="display: none;">
+    	<div class="summary">
+			<img src="../images/book-default-medium.gif" class="cover-image" style="float:left;"/>
+			<div class="detail-content">
+				
+			</div>
+		</div>
+		
+
+			<div class="entry-action">
+							<!--can udi be one attribute of entry?-->
+						<div class="uid"><%=h item.id.scan(/review\/(\d*)/)[0]%></div>
+						<div class="subject_id hidden"><%=h item.link['self']%></div>
+						<span class="entry-comment link"><%=t :add_comment%></span>
+						<span class="entry-star link star-unmarked"><%=t :i_like_it%></span>
+			</div>
+			<!--below should be open by action, but one only one action need extra panel-->
+			<!--below div should be added dynamically-->
+			<div class="action-area" style="display: none;">
+						<div class="comments-area">
+									<div class="idd hidden"><%=h item.id%></div><!--raw id of the review-->
+									<textarea name="comments" class="content-comment"></textarea>
+									<span class="submit-content-div link"><%=t :send%></span>
+						</div>
+			</div>
+		</div>
+  </div>
+<% end %>

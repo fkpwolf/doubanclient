@@ -1,0 +1,35 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+
+<% for item in @items %>
+ 
+  <div class="entry">
+    <div class="entry-icons">
+      <div class="sta"></div>
+    </div>
+		<div class="entry-secondary">
+						<div class="entry-title"><%=h item.title.content %></div>
+						<span class="entry-secondary-snippet">
+										<%=h item.summary.content%>
+						</span>
+		</div>
+		<div class="content" style="display: none;">
+    	<div class="summary"><%=h item.summary.content%></div>
+    	<div class="uid"><%=h item.link.rel%></div>
+			<div class="entry-action">
+						<span class="entry-comment link">Add Comment</span>
+						<span class="entry-star link ">Add Star</span>
+			</div>
+			<!--below should be open by action, but one only one action need extra panel-->
+			<!--below div should be added dynamically-->
+			<div class="action-area" style="display: none;">
+						<div class="comments-area">
+									<textarea name="comments"></textarea>
+									<input type="submit" value="Save"/>
+						</div>
+			</div>
+		</div>
+  </div>
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Editing visitlog</h1>
+
+<% form_for(@visitlog) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </p>
+  <p>
+    <%= f.label :ip %><br />
+    <%= f.text_field :ip %>
+  </p>
+  <p>
+    <%= f.label :last_visit %><br />
+    <%= f.date_select :last_visit %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @visitlog %> |
+<%= link_to 'Back', visitlogs_path %>

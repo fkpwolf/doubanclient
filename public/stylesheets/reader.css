@@ -1,0 +1,338 @@
+/* 
+    Document   : reader
+    Created on : Dec 29, 2008, 11:18:26 AM
+    Author     : 183214
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+ .entry {
+    border-bottom:1px solid #C2CFF1;
+    margin:0;
+    overflow:hidden;
+    padding:0;
+
+    border-collapse:collapse;
+    border-spacing:0;
+    cursor:pointer;
+	
+	
+  }
+
+  .entry .entry-date {
+    display:block;
+    margin:0 2.3em 0 0;
+    padding:0;
+    width:auto;
+    float:right;
+    margin-right:0.2em;
+    padding-right:15px;
+    text-align:right;
+    width:6.5em;
+    color:#666666;
+    text-decoration:none;
+  }
+
+  .entry .entry-title{
+    display:inline;
+    margin:0;
+    padding:0;
+    position:static;
+    white-space:inherit;
+    font-size:100%;
+    font-weight:bold;
+    margin-right:0.5em;
+    max-width:580px;
+    width:auto;
+  }
+  .content{
+    background:	#FFFFFF;
+		cursor:default;/*ugly, how to override parent class?*/
+  }
+
+	.entry-action{
+		
+		background:#F3F5FC none repeat scroll 0 0
+	}
+
+	.entry-comment{
+					text-decoration:none;
+					background-color:transparent;
+					background-repeat:no-repeat;
+					line-height:15px;
+					padding:0 8px 0 16px;
+					position:relative;
+					vertical-align:baseline;
+					background-image:url(../images/560081298-mobile-sprite.png);
+					background-position:-87px -136px;
+					
+					font-size:90%
+	}
+
+	.entry-expand{
+					cursor:pointer;
+					font-size:90%
+	}
+
+	.entry-comment-active{
+					background-color:#C2CFF1;
+					font-size:90%
+	}
+
+	.action-area{
+			background-color:#C2CFF1
+	}
+
+
+  .uid{
+    display: none;
+  }
+
+
+  #entries .read {
+
+    background:#E8EEF7 none repeat scroll 0 0;
+
+  }
+  #entries .read .entry-title{
+    font-weight:normal;
+  }
+
+
+  #current-entry .content{
+
+    /*
+		 display:block;
+		 */
+  }
+
+	#current-entry .entry-secondary{ /* css is cool!*/
+		background:#F3F5FC none repeat scroll 0 0;
+	}
+
+  #current-entry{
+    border:2px solid #8181DC;
+  }
+
+  .entry-icons{
+  }
+
+  .star{
+    height:15px;
+    width:15px;
+  }
+  .item-star{
+    background:transparent url(/images/star_inactive.png) no-repeat scroll 0 0;
+  }
+
+  .item-star-active{
+    background:transparent url(/images/star_active.png) no-repeat scroll 0 0;
+  }
+
+.link{
+  cursor:pointer;
+  color:#2244BB
+}
+	.entry-secondary-snippet{
+		color:#777777;
+		white-space:normal;
+float:none;
+margin:0;
+padding:0;
+position:static;
+width:auto;
+line-height:2.3ex;		
+border-collapse:collapse;
+border-spacing:0;
+
+					
+	}
+	.entry-secondary{
+		line-height:2.3ex;
+		/*height:2.2ex;*/
+		overflow:hidden; /* to hidden the too long title*/
+		border:2px solid #FFFFFF;/*to enlarge the space bettwen entry*/
+		
+		}
+		
+.entry-star{
+	text-decoration:none;
+	background-color:transparent;
+	background-repeat:no-repeat;
+	line-height:15px;
+	padding:0 8px 0 16px;
+	position:relative;
+	vertical-align:baseline;
+}
+.star-unmarked{
+	background-image:url(../images/560081298-mobile-sprite.png);
+	background-position:-87px -257px;
+}
+.star-marked{
+	background-image:url(../images/560081298-mobile-sprite.png);
+	background-position:-87px -275px;
+}
+
+		html, body{
+		  font-family:arial,sans-serif;
+		  border:0 none;
+		  margin:0;
+		}
+
+		#chrome-header {
+		  background:#C2CFF1 none repeat scroll 0 0;
+		  color:#000000;
+		  overflow:hidden;
+		  padding:5px 11px;
+		  position:relative;
+
+		  text-align: center;
+		}  
+
+		#refresh-button {
+		  float:right;
+		}
+
+		#menu-button {
+		  float:left;
+		}
+
+		/*there is no float:center*/
+		#header-title {
+		  display:inline;
+		}
+
+.menu-button{
+	cursor:pointer;
+	border-bottom:1px solid #C2CFF1;
+	background:url(../images/list_arrow.png) no-repeat scroll right center transparent;
+}
+
+.sub-item{
+	vertical-align:middle;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 5px;
+}
+
+.submit-content-div{
+	cursor:pointer;
+
+}
+
+.hidden {
+display:none;
+}
+/*here I must remove first and then add css attribute, ugly*/
+.shown {
+display:block;
+}
+	
+	/*css for header, from m.flickr.com*/
+	body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+	}
+	#nav {
+	line-height:14px;
+	position:relative;
+	}
+	#nav_main  {
+	color:#111111;
+	height:30px;
+	}
+
+	
+	ol, ul {
+	list-style:none outside none;
+	}
+	
+	#nav_main li {
+	  
+	  float:left;
+	  margin:2px 0 0 -1px;
+	  text-align:center;
+	  width:25%;
+	}
+	
+	li#logo_tab {
+	  float:left;
+	  margin:2px 0 0 -1px;
+	  text-align:left;
+	  width:25%;
+	}
+	.unselected{
+	  background:none repeat scroll 0 0 #F3F3F3;
+	  border-color:#E3E3E3;
+	  border-style:solid;
+	  border-width:0 0 1px 1px;
+	}
+	.selected {
+	  background:none repeat scroll 0 0;
+	}
+	
+	#nav_main li a {
+	display:block;
+	padding:6px 0 7px;
+	}
+	a {
+	color:#0063DC;
+	text-decoration:none;
+	}
+	.search-field  {
+	font-size:18px;
+	margin:4px 0;
+	padding:2px;
+	width:100%;
+	}
+	
+	
+.footer {
+  padding:10px 5px 5px;
+  text-align:center;
+  font-family:sans-serif;
+  font-size:13px;
+}
+
+.Butt  {
+background:none repeat scroll 0 0 #0063DC;
+border:medium none;
+color:#FFFFFF;
+font-family:inherit;
+font-size:12px;
+font-weight:bold;
+padding:10px;
+text-decoration:none;
+text-shadow:0 -1px 0 transparent;
+white-space:nowrap;
+width:auto;
+}
+
+#search-area-submit{
+	float:right;
+}
+
+.itm {
+  border-bottom:1px solid #DFDFDF;
+  margin-bottom:4px;
+  padding:0 8px 4px;
+}
+
+h2{
+	color:#006600;
+	font-size:14px;
+	font-weight:bold;
+	margin-bottom:5px;
+	padding:0 8px;
+}
+
+input {border:1px solid;} 

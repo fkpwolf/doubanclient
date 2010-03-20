@@ -1,0 +1,36 @@
+zh:
+
+  app_name: '煮豆'
+  app_name1: '煮'
+  app_name2: '豆'
+
+  book: '书籍'
+  movie: '电影'
+  music: '音乐'
+  all_cat: '所有' 
+
+  submit: '提交'
+  menu: '菜单'
+  send: '发送'
+  some_mini_blog_nearby: '友邻广播'
+  The_most_Popular_book_review: '最受欢迎的书评'
+  The_most_Popular_movie_review: '最受欢迎的影评'
+  
+  my_mail_box: '我的邮箱'
+  i_like_it: '想看'
+  add_comment: '添加评论'
+  send: '发送'
+  Welcome: '欢迎'
+  Explore: '我说'
+  Nearby: '同城'
+  Search: '搜索'
+  SaySome: '我说'
+  SaySome_desc: '随便说说'
+  MineTab: '个人'
+  search_result: '搜索结果'
+
+  search_desc: '搜索豆瓣'
+
+  summary: '简介'
+  author_summary: '作者简介'
+  cast: '导演'

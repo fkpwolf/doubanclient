@@ -1,0 +1,278 @@
+<script src="../javascripts/jquery-1.4.2.js"></script>
+<script src="../javascripts/soyutils.js"></script>
+<script src="../javascripts/dc-template.js"></script>
+<script src="../javascripts/mybinding.js"></script>
+
+<link rel="stylesheet" href="../stylesheets/reader.css" type="text/css">
+<link rel="stylesheet" href="../stylesheets/g.css" type="text/css">
+
+<script language="javascript">
+  //list all translation here will waste time. We should load just few data which is needful for specific template
+  var trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
+							"send" : "<%=t :send%>"};
+
+  jQuery.fn.log = function (msg) {
+  	console.log("%s: %o", msg, this);  
+  	return this;  
+	};
+
+  //Event.observe(window, 'load', init, false);
+  //$(document).log("ok, ready.").ready(init);//oh, the log is cool! can put it to java?
+  $(document).ready(init);
+  
+  var menu_content = '';
+  
+  var current_menu_id = '';
+
+  function init(){
+	  console.log("....init");
+    doFresh();
+    page_loaded();
+  };
+
+  function doFresh(){
+    $('#entries').innerHTML = '';
+    current_menu_id = 'most-popular-book-review';
+
+  	$.ajax({
+    	type: 'post',
+    	url: '/t/refresh_entries',
+    	data: 'id=most-popular-book-review',
+    	success: function(data) { 
+				//$('#entries').html(data);
+				//we should a test case
+				
+				//trans should be sent from server. but it will go to complicated
+				$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
+				reviews_binding($('#entries'));
+				//page_loaded();
+			}
+  	}); //but how to pass authenticity_token with helper class provided, no need?
+  };
+
+  function refreshMenu() {
+    $('entries').innerHTML = '';
+    <%= remote_function(:update => "entries",
+                         :url => { :action => :menu},
+                         :complete => "page_loaded();menu_content = $('entries').innerHTML;"
+                       ) %>;
+     //you can't assign value to menu_content at this line, for ajax is async
+  };
+
+  function viewMenu(){
+    //get from cache
+    if ( menu_content == '') {
+      refreshMenu();
+    } else {
+      $('entries').innerHTML = menu_content;
+	  page_loaded();
+    }
+  }
+
+  function activeTab(element){
+    $$("ul#nav_main li").each( function(familyMember){
+	  if(familyMember.id == element.id){
+		familyMember.removeClassName('unselected');
+		familyMember.addClassName('selected');
+	  }else{
+		familyMember.addClassName('unselected');
+		familyMember.removeClassName('selected');
+	  }
+    });
+  }
+
+  function Post(element) {
+    this.element = element;
+  };
+
+   Post.prototype = {
+        markRead: function(){
+            this.element.addClassName('read');
+        },
+        markUnread: function(){
+            this.element.removeClassName('read');
+        },
+        isRead: function(){
+            return this.element.hasClassName('read');
+        }
+   };
+
+  function page_loaded(evt) {
+
+		//What's map function in jquery?
+    //var posts = $('div.entry-secondary').map(function(el){
+    //  return new Post(el);
+    //});
+
+	//this should be registered only when the needful!!!!!!!!!!!!!!!!!!!
+  $('span.submit-content-div222').each( function(familyMember){
+		familyMember.onclick = function(){
+			var comments_area = Element.ancestors(familyMember)[0];
+			var content = comments_area.getElementsByClassName('content-comment')[0].value;
+			var idd = comments_area.getElementsByClassName('idd')[0].innerHTML;
+			<%= remote_function(:update => "ssss",
+								:with=>"'subject_link=' + idd + '&content=' + content",
+			                    :url => { :action => :create_review},
+			                    :complete => "page_loaded()" )
+			%>;
+		};
+	});
+
+    //when click one of menu item
+	$('.menu-button').each( function(familyMember){
+	  familyMember.onclick= function(){
+	    $('entries').innerHTML = '';
+	    current_menu_id = familyMember.id;
+	    <%= remote_function(:update => "entries",
+						  :with => "'id=' + familyMember.id",
+	                      :url => { :action => :refresh_entries},
+	                      :complete => "page_loaded()"
+	    ) %>;
+		if($('nav-title'))  //ho, shit, so many check
+	      $('nav-title').innerHTML = familyMember.innerHTML;
+      };
+    });
+
+    //nearly same with logic of menu-button. FIXME
+	if($('#header-refresh') != null){
+	$('header-refresh').onclick = function(){
+		$('entries').innerHTML = '';
+	    <%= remote_function(:update => "entries",
+						  :with => "'id=' + current_menu_id",
+	                      :url => { :action => :refresh_entries},
+	                      :complete => "page_loaded()"
+	    ) %>;
+	    //$('nav-title').innerHTML = familyMember.innerHTML; 
+	};
+	};
+			
+	if ($('#back-to-feeds')){
+      $('back-to-feeds').onclick  = function(){
+	 	  current_menu_id = this.id;
+		  if($('nav-title'))
+		  	$('nav-title').innerHTML = '<%=t :menu%>'; //this.innerHTML;
+	      viewMenu(); 
+	  }; 
+	};
+
+
+    //$('back-to-feeds2').onclick  = function(){ viewMenu(); };
+
+    if($('#my-miniblog') != null){//UGLY
+	  $('my-miniblog').onclick = function(){ 
+	    $('entries').innerHTML = '';
+	    $('miniblog-area').removeClassName('hidden');
+	    $('miniblog-area').addClassName('show');
+	  };
+    };
+	
+	if($('#miniblog-area-submit') != null){
+	  $('miniblog-area-submit').onclick = function(){
+	    //is below code really post? I need do url encode?
+	    <%= remote_function(:update => "ssss",
+		  	                :with=>"'miniblog_content=' + $('miniblog_content').value",
+	                        :url => { :action => :miniblog},
+	                        :complete => "page_loaded()"
+	     ) %>;
+	  };
+    };
+
+	if($('#search-area-submit') != null){
+	  $('search-area-submit').onclick = function(){
+	    <%= remote_function(:update => "entries",
+		  	                :with=>"'search_criteria=' + $('search_criteria').value + '&subject_cat=' + $('subject_cat').value",
+	                        :url => { :action => :search},
+	                        :complete => "page_loaded(); current_menu_id='search'"
+	     ) %>;
+	  };
+    };
+	
+
+	if($('#search-tab') != null){
+	  $('search-tab').onclick = function(){
+		 activeTab(this);
+		 $('entries').innerHTML = $('search-area').innerHTML;
+		 page_loaded(); //!!!!!!!!!! How to prevent to load page? maybe I just need to register this button
+	  };
+    };
+
+	if($('#say-tab') != null){
+	  $('say-tab').onclick = function(){
+		 activeTab(this);
+		 $('entries').innerHTML = $('miniblog-area').innerHTML;
+		 page_loaded();
+	  };
+    };
+
+  console.log("continue loading...221");
+	if($('#mine-tab') != null) {
+	  $('#mine-tab').bind('click', function(){
+			activeTab(this);
+			viewMenu();
+	  });
+  };
+
+
+  
+
+  }
+</script>
+
+<div id="nav">
+			<ul id="nav_main">
+				
+				<li id="logo_tab" class="unselected">
+					<a type="nav" href=".">
+						<p>&nbsp;<span style="color:white;background-color:red;"><%=t :app_name1%></span><span style="color:white;background-color:#006600;"><%=t:app_name2%></span></p>
+					</a>
+				</li>
+				<li id="say-tab" class="unselected"><a type="nav" href="#search"><%=t :SaySome%></a></li>
+				<li id="mine-tab" class="unselected"><a type="nav" href="#nearby/"><%=t :MineTab%></a></li>
+				<li id="search-tab" class="unselected"><a type="nav" href="#search"><%=t :Search%></a></li>
+			</ul>
+			<ul id="nav_sub"></ul>
+</div>
+
+
+
+
+<div id="center1">
+
+  <div id="entries">
+  </div>
+  
+  <!--say something dialog-->
+  <div id="miniblog-area" class='hidden'>
+	<div style="padding: 12px;">
+		<h4><%=t :SaySome_desc%></h4>
+  		<textarea id='miniblog_content' name="miniblog_content"></textarea>
+		<input id='miniblog-area-submit' type="button" class="Butt"  value="<%=t :send%>"/>
+	</div>
+  </div>
+
+  <div id="search-area" class='hidden'>
+	<div style="padding: 12px;">
+		<h4><%=t :search_desc%></h4>
+  		<input id='search_criteria' name="search_criteria" class="search-field"></input>
+		<select name="subject_cat" id="subject_cat" style="width:100%;">
+			<option value="book"><%=t :book%></option>
+			<option value="movie"><%=t :movie%></option>
+			<option value="music"><%=t :music%></option>
+			
+		</select>
+		<br>
+		<input id='search-area-submit' class="Butt" type="button" value="<%=t :Search%>"/>
+	</div>
+  </div>
+</div>
+
+<div class="footer">
+	any problem please send to fkpwolf At gmail.com
+	<br>
+	or submit <a href="http://code.google.com/p/doubanclient/issues/list">here</a>. Thanks!
+	<br><br>
+	zudou.net
+</div>
+
+
+

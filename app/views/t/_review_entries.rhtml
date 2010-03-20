@@ -1,0 +1,80 @@
+<%#
+# To change this template, choose Tools | Templates
+# and open the template in the editor.
+%>
+<div class="nav-bar-container">
+	<div class="nav-bar">
+		<table class="nav-table">
+			<tbody>
+				<tr>
+					<td class="nav-table-left">
+						<div id="back-to-feeds" class="m-button back-to-feeds">
+							<span class="m-button-contents">&laquo;<%=t :menu%></span>
+						</div> 
+					</td> <!--
+					<td class="nav-table-middle">
+						<div id="nav-title">
+							None Title
+						</div>
+					</td>-->
+					<td class="nav-table-right">
+					<!--	<div id="header-menu" class="m-button ">
+							<span class="m-button-contents"/>
+						</div>  --> 
+						<div id="header-refresh" class="m-button ">
+							<span class="m-button-contents"/>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="nav-bar-shadow"/></div> 
+		
+		<div class="goog-menu goog-menu-vertical" style="display: none;"/>
+	</div>
+</div>
+<% for item in @books %>
+ 
+  <div class="entry">
+    <div class="entry-icons">
+      <div class="sta"></div>
+    </div>
+		<div class="entry-secondary">
+						<div class="entry-title"><%=h item.title %></div>
+						<span class="entry-secondary-snippet">
+										<%=h item.author.name %> |
+										<i><%=h item.subject.title %></i>
+						</span>
+						<div class="entry-secondary-snippet"><%=h item.summary%></div>
+						<div class="uid"><%=h item.id.scan(/review\/(\d*)/)[0]%></div>
+		</div>
+		<!--can I put the data structure in other place like Google Reader? here I have to let them all hidden-->
+		<div class="link" style="display: none;"><%=h item.subject.link["image"]%></div>
+		<div class="content" style="display: none;">
+    	<div class="summary">
+			<img src="../images/book-default-medium.gif" class="cover-image" style="float:left;"/> <!--there should be a blank image-->
+			<div class="detail-content">
+				<%=h item.summary%>
+			</div>
+		</div>
+		
+
+			<div class="entry-action">
+							<!--can udi be one attribute of entry?-->
+						<div class="uid"><%=h item.id.scan(/review\/(\d*)/)[0]%></div>
+						<div class="subject_id hidden"><%=h item.subject.link['self']%></div>
+						<span class="entry-comment link"><%=t :add_comment%></span>
+						<span class="entry-star link star-unmarked"><%=t :i_like_it%></span>
+			</div>
+			<!--below should be open by action, but one only one action need extra panel-->
+			<!--below div should be added dynamically-->
+			<div class="action-area" style="display: none;">
+						<div class="comments-area">
+									<div class="idd hidden"><%=h item.id%></div><!--raw id of the review-->
+									<textarea name="comments" class="content-comment"></textarea>
+									<span class="submit-content-div link"><%=t :send%></span>
+						</div>
+			</div>
+		</div>
+  </div>
+<% end %>

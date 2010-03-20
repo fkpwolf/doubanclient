@@ -1,0 +1,18 @@
+<p>
+  <b>UId:</b>
+  <%=h @visitlog.uid %>
+</p>
+
+<p>
+  <b>Ip:</b>
+  <%=h @visitlog.ip %>
+</p>
+
+<p>
+  <b>Last visit:</b>
+  <%=h @visitlog.last_visit %>
+</p>
+
+
+<%= link_to 'Edit', edit_visitlog_path(@visitlog) %> |
+<%= link_to 'Back', visitlogs_path %>

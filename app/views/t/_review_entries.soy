@@ -1,0 +1,98 @@
+{namespace dc.template}
+
+/**
+ * Greets a person and optionally a list of other people.
+ * @param list The name of the person.
+ * @param trans the translation list.
+ */
+{template .reviews}
+<div class="nav-bar-container">
+	<div class="nav-bar">
+		<table class="nav-table">
+			<tbody>
+				<tr>
+					<td class="nav-table-left">
+						<div id="back-to-feeds" class="m-button back-to-feeds">
+							<span class="m-button-contents">&laquo;{$trans.menu}</span>
+						</div> 
+					</td> <!--
+					<td class="nav-table-middle">
+						<div id="nav-title">
+							None Title
+						</div>
+					</td>-->
+					<td class="nav-table-right">
+					<!--	<div id="header-menu" class="m-button ">
+							<span class="m-button-contents"/>
+						</div>  --> 
+						<div id="header-refresh" class="m-button ">
+							<span class="m-button-contents"/>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div id="nav-bar-shadow"/></div> 
+		
+		<div class="goog-menu goog-menu-vertical" style="display: none;"/>
+	</div>
+</div>
+
+  {foreach $entry in $list}
+		{call .review}
+		      {param entry: $entry /}
+		{/call}
+  {/foreach}
+{/template}
+
+/**
+ *comment
+ *@param entry haha
+ */
+{template .review}
+	
+	<div class="entry">
+    <div class="entry-icons">
+      <div class="sta"></div>
+    </div>
+		<div class="entry-secondary">
+						<div class="entry-title">{$entry.title}</div>
+						<span class="entry-secondary-snippet">
+										{$entry.author.name}|
+										<i>{$entry.subject.title}</i>
+						</span>
+						<div class="entry-secondary-snippet">{$entry.summary}</div>
+						<div class="uid">{$entry.id}</div>
+		</div>
+		<!--can I put the data structure in other place like Google Reader? here I have to let them all hidden-->
+		<div class="link" style="display: none;">{$entry.subject.link.image}</div>
+		<div class="content" style="display: none;">
+    	
+		</div>
+  </div>
+{/template}
+
+/**
+ *comment
+ *@param trans 
+ */
+{template .content}
+<div class="summary">
+ <img src="../images/book-default-medium.gif" class="cover-image" style="float:left;"/>
+ <div class="detail-content">loading....</div>
+</div>
+
+<div class="entry-action">
+			<div class="subject_id hidden"><%=h item.subject.link['self']%></div>
+			<span class="entry-comment link">{$trans.add_comment}</span>
+			<span class="entry-star link star-unmarked">{$trans.i_like_it}</span>
+</div>
+
+<div class="action-area" style="display: none;">
+			<div class="comments-area">
+						<div class="idd hidden">{$trans.id}</div><!--raw id of the review-->
+						<textarea name="comments" class="content-comment"></textarea>
+						<span class="submit-content-div link">{$trans.send}</span>
+			</div>
+</div>
+{/template}

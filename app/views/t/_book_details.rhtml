@@ -1,0 +1,9 @@
+<div id="name" class='itm'>
+	<h2><%=t :summary%>:</h2>
+	<%= @subject.summary%> <!--here can use =h, the summary has been transformed-->
+</div>
+
+<div id="name" class='itm'>
+	<h2><%=t :author_summary%>:</h2>
+	<%=h @subject.attribute["author-intro"]%>
+</div>
