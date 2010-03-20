@@ -39,13 +39,9 @@
     	url: '/t/refresh_entries',
     	data: 'id=most-popular-book-review',
     	success: function(data) { 
-				//$('#entries').html(data);
-				//we should a test case
-				
 				//trans should be sent from server. but it will go to complicated
 				$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
-				reviews_binding($('#entries'));
-				//page_loaded();
+				reviews_binding($('#entries'), data); //is this 'data' too big?
 			}
   	}); //but how to pass authenticity_token with helper class provided, no need?
   };

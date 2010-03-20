@@ -1,6 +1,8 @@
-reviews_binding = function(root){
+reviews_binding = function(root, data){
 	
-	root.find("div.entry-secondary").each( function(){
+	root.find("div.entry-secondary").each( function(index){
+	  var entryDOM = data[index];
+	
 	  this.onclick = function() {
 		var entry = $(this).parent()[0]; //here need a $, ugly! confused!
 		var c = $(entry).children(".content");
@@ -21,13 +23,11 @@ reviews_binding = function(root){
           }
           entry.id="current-entry";
         };
-
 				//this.scrollTo(); !!! FIXME
 		
 	   /*check if we have cached the detailed content*/
 	   if( !$(c[0]).hasClass("stollen")){
-		  var uid = $(this).children(".uid")[0];
-		  var pars = 'id=' + uid.innerHTML + "&type=" + current_menu_id; /*ugly! innerHTML!*/
+		  var pars = 'id=' + entryDOM.id + "&type=" + current_menu_id; /*ugly! innerHTML!*/
 		  if (current_menu_id=="search") {
 			var id = $$('div#current-entry .content .summary .detail-content')[0]
 		   	var myAjax = new Ajax.Updater(id,
