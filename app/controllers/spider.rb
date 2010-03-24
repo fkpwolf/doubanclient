@@ -71,7 +71,5 @@ class Spider
 					)
 	end
   
-  #class_caches :fetch_book_reviews, :timeout => 10.minutes
-  #class_caches :fetch_movie_reviews, :timeout => 10.minutes
   class_caches :fetch_reviews, :timeout => 30.minutes
 end
