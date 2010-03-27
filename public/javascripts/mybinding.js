@@ -93,17 +93,21 @@ mysay_bind = function(page){
 	});
 };
 
-my_menu_bind = function(page) {
-	page.find('.menu-button').each( function(){
-	  $(this).bind('click',function(){
+//bind 'mine' menu
+my_menu_bind = function(root) {
+	root.find('div.menu-button').each( function(){
+	  this.onclick = function(){
 	    $('entries').html('');
 	    //current_menu_id = this.id;
 		  $.ajax({
             type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
-						success: function(data) {$('#entries').html(data)}
+						success: function(data) {
+							$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
+							reviews_binding($('#entries'), data); //DRY!!!
+					  }
 		  });
 	    $('#nav-title').html(this.innerHTML);  //here, $ like global variable
-    });
+    };
 	});
 };
 
@@ -111,7 +115,6 @@ content_binding = function(root){
     //bind the "click entry add comment button" event
 	root.find('span.entry-comment').each( function(){
     this.onclick = function() {
-			  console.log("click entry comment");
 			  $(this).parent().parent().children(".action-area").toggle();
 				/*change color to be a active tab*/
 				if ($(this).hasClass("entry-comment-active")){

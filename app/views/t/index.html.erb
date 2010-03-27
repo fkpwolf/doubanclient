@@ -8,7 +8,8 @@
 
 <script language="javascript">
   //list all translation here will waste time. We should load just few data which is needful for specific template
-  var trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
+	//global variable.ugly.
+  trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
 							"send" : "<%=t :send%>"};
 
   jQuery.fn.log = function (msg) {
@@ -52,6 +53,7 @@
 						 type: 'get', url: '/t/menu', success: function(data){
 										 $('#entries').html(data);
 										 menu_content = $('#entries').html();
+										 my_menu_bind($('#entries'));
 						 }
 		 });
   };
@@ -61,8 +63,8 @@
       refreshMenu();
     } else {
       $('#entries').html(menu_content);
+			my_menu_bind($('#entries'));
     }
-		my_menu_bind($('#entries'));
   };
 
   function activeTab(element){
@@ -100,19 +102,6 @@
     //  return new Post(el);
     //});
 
-	//this should be registered only when the needful!!!!!!!!!!!!!!!!!!!
-  $('span.submit-content-div222').each( function(familyMember){
-		familyMember.onclick = function(){
-			var comments_area = Element.ancestors(familyMember)[0];
-			var content = comments_area.getElementsByClassName('content-comment')[0].value;
-			var idd = comments_area.getElementsByClassName('idd')[0].innerHTML;
-			<%= remote_function(:update => "ssss",
-								:with=>"'subject_link=' + idd + '&content=' + content",
-			                    :url => { :action => :create_review},
-			                    :complete => "page_loaded()" )
-			%>;
-		};
-	});
 
   //nearly same with logic of menu-button. FIXME
 	if($('#header-refresh') != null){
