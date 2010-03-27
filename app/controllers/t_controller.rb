@@ -3,6 +3,7 @@ require 'open-uri'
 require 'douban'
 require'oauth'
 require 'oauth/consumer'
+require 'net/http'
 
 require'rexml/document' #ri, ugly
 
@@ -10,7 +11,6 @@ require "erb"
 
 require "spider"
 include ERB::Util
-
 
 class TController < ApplicationController
   def index

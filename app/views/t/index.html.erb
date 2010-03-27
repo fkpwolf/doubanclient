@@ -8,7 +8,8 @@
 
 <script language="javascript">
   //list all translation here will waste time. We should load just few data which is needful for specific template
-  var trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
+	//global variable.ugly.
+  trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
 							"send" : "<%=t :send%>"};
 
   jQuery.fn.log = function (msg) {
@@ -47,35 +48,36 @@
   };
 
   function refreshMenu() {
-    $('entries').innerHTML = '';
-    <%= remote_function(:update => "entries",
-                         :url => { :action => :menu},
-                         :complete => "page_loaded();menu_content = $('entries').innerHTML;"
-                       ) %>;
-     //you can't assign value to menu_content at this line, for ajax is async
+    $('#entries').html('');
+		 $.ajax({
+						 type: 'get', url: '/t/menu', success: function(data){
+										 $('#entries').html(data);
+										 menu_content = $('#entries').html();
+										 my_menu_bind($('#entries'));
+						 }
+		 });
   };
 
   function viewMenu(){
-    //get from cache
-    if ( menu_content == '') {
+    if ( menu_content === '') {
       refreshMenu();
     } else {
-      $('entries').innerHTML = menu_content;
-	  page_loaded();
+      $('#entries').html(menu_content);
+			my_menu_bind($('#entries'));
     }
-  }
+  };
 
   function activeTab(element){
-    $$("ul#nav_main li").each( function(familyMember){
-	  if(familyMember.id == element.id){
-		familyMember.removeClassName('unselected');
-		familyMember.addClassName('selected');
-	  }else{
-		familyMember.addClassName('unselected');
-		familyMember.removeClassName('selected');
-	  }
-    });
-  }
+    $('ul#nav_main li').each( function(){
+		  if(this.id == element.id){
+			  $(this).removeClass('unselected');
+				$(this).addClass('selected');
+			}else{
+			  $(this).addClass('unselected');
+				$(this).removeClass('selected');
+			}
+		});
+  };
 
   function Post(element) {
     this.element = element;
@@ -100,36 +102,8 @@
     //  return new Post(el);
     //});
 
-	//this should be registered only when the needful!!!!!!!!!!!!!!!!!!!
-  $('span.submit-content-div222').each( function(familyMember){
-		familyMember.onclick = function(){
-			var comments_area = Element.ancestors(familyMember)[0];
-			var content = comments_area.getElementsByClassName('content-comment')[0].value;
-			var idd = comments_area.getElementsByClassName('idd')[0].innerHTML;
-			<%= remote_function(:update => "ssss",
-								:with=>"'subject_link=' + idd + '&content=' + content",
-			                    :url => { :action => :create_review},
-			                    :complete => "page_loaded()" )
-			%>;
-		};
-	});
 
-    //when click one of menu item
-	$('.menu-button').each( function(familyMember){
-	  familyMember.onclick= function(){
-	    $('entries').innerHTML = '';
-	    current_menu_id = familyMember.id;
-	    <%= remote_function(:update => "entries",
-						  :with => "'id=' + familyMember.id",
-	                      :url => { :action => :refresh_entries},
-	                      :complete => "page_loaded()"
-	    ) %>;
-		if($('nav-title'))  //ho, shit, so many check
-	      $('nav-title').innerHTML = familyMember.innerHTML;
-      };
-    });
-
-    //nearly same with logic of menu-button. FIXME
+  //nearly same with logic of menu-button. FIXME
 	if($('#header-refresh') != null){
 	$('header-refresh').onclick = function(){
 		$('entries').innerHTML = '';
@@ -151,28 +125,6 @@
 	  }; 
 	};
 
-
-    //$('back-to-feeds2').onclick  = function(){ viewMenu(); };
-
-    if($('#my-miniblog') != null){//UGLY
-	  $('my-miniblog').onclick = function(){ 
-	    $('entries').innerHTML = '';
-	    $('miniblog-area').removeClassName('hidden');
-	    $('miniblog-area').addClassName('show');
-	  };
-    };
-	
-	if($('#miniblog-area-submit') != null){
-	  $('miniblog-area-submit').onclick = function(){
-	    //is below code really post? I need do url encode?
-	    <%= remote_function(:update => "ssss",
-		  	                :with=>"'miniblog_content=' + $('miniblog_content').value",
-	                        :url => { :action => :miniblog},
-	                        :complete => "page_loaded()"
-	     ) %>;
-	  };
-    };
-
 	if($('#search-area-submit') != null){
 	  $('search-area-submit').onclick = function(){
 	    <%= remote_function(:update => "entries",
@@ -181,26 +133,25 @@
 	                        :complete => "page_loaded(); current_menu_id='search'"
 	     ) %>;
 	  };
-    };
+  };
 	
 
+	//if I can use observer or event. 
 	if($('#search-tab') != null){
-	  $('search-tab').onclick = function(){
-		 activeTab(this);
-		 $('entries').innerHTML = $('search-area').innerHTML;
-		 page_loaded(); //!!!!!!!!!! How to prevent to load page? maybe I just need to register this button
-	  };
-    };
+	  $('#search-tab').bind('click', function(){
+		  activeTab(this);
+		  $('#entries').html($('#search-area').html());
+	  });
+  };
 
 	if($('#say-tab') != null){
-	  $('say-tab').onclick = function(){
-		 activeTab(this);
-		 $('entries').innerHTML = $('miniblog-area').innerHTML;
-		 page_loaded();
-	  };
-    };
+		$('#say-tab').bind('click', function(){
+		  activeTab(this);
+		  $('#entries').html($('#miniblog-area').html());
+			mysay_bind($('#entries') );
+	  });
+  };
 
-  console.log("continue loading...221");
 	if($('#mine-tab') != null) {
 	  $('#mine-tab').bind('click', function(){
 			activeTab(this);

@@ -10,7 +10,7 @@ reviews_binding = function(root, data){
 			$(c[0]).html(dc.template.content({'trans' : trans} ));
 			content_binding($(c[0]));// $(c[0]).bind(); is better.
         } else{
-			$(c[0]).html(""); //need unbind?
+			$(c[0]).html(""); //not need unbind?
 		};
 
         $(c[0]).toggle();
@@ -26,16 +26,30 @@ reviews_binding = function(root, data){
 				//this.scrollTo(); !!! FIXME
 		
 	   /*check if we have cached the detailed content*/
-	   if( !$(c[0]).hasClass("stollen")){
-		  var pars = 'id=' + entryDOM.id + "&type=" + current_menu_id; /*ugly! innerHTML!*/
+	   if( entryDOM.detailContent === undefined){
+		  var pars = 'id=' + entryDOM.id + "&type=" + current_menu_id;
 		  if (current_menu_id=="search") {
 			var id = $$('div#current-entry .content .summary .detail-content')[0]
 		   	var myAjax = new Ajax.Updater(id,
 						'/t/expand',{ evalScripts:true, parameters: pars, onComplete: showResponse}
 				);
 		  } else{
-				$.ajax({ type: 'get',url: '/t/expand',data: pars,success: function(data) { showResponse222(data)}  });
+				$.ajax({ type: 'get',url: '/t/expand',data: pars,success: function(data) {
+												//$('div#current-entry .content .summary .detail-content')[0].innerHTML = data.html;
+												entryDOM.detailContent = data.html
+												$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);
+												$('div#current-entry .content').addClass("stollen");
+												var link = $('div#current-entry .link')[0].innerHTML;
+												$('div#current-entry .content .summary .cover-image')[0].src = link;
+												//FIXME can get from familymber?
+												//$('.div#current-entry')[0].scrollTo();//there are 2 scrollTo, oh, no other way.FIXME
+												//It looks that after ajax response came back, the position changed, so only one scrollTo didn't work
+												//and BUG: the last entry didn't scroll to top. FIXME
+									}  
+							 });
 		  };
+		} else {
+			$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);
 		};
 		
     };//end of onclick
@@ -66,11 +80,41 @@ reviews_binding = function(root, data){
 
 };
 
+dc.test = function(){
+				console.log("look, I have namespace");
+};
+
+//did I need some namespace?
+mysay_bind = function(page){
+	page.find("#miniblog-area-submit").bind('click', function(){
+		 $.ajax({
+            type: 'get', url: '/t/miniblog', data: 'miniblog_content=' + $('#miniblog_content').val()
+		 });
+	});
+};
+
+//bind 'mine' menu
+my_menu_bind = function(root) {
+	root.find('div.menu-button').each( function(){
+	  this.onclick = function(){
+	    $('entries').html('');
+	    //current_menu_id = this.id;
+		  $.ajax({
+            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
+						success: function(data) {
+							$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
+							reviews_binding($('#entries'), data); //DRY!!!
+					  }
+		  });
+	    $('#nav-title').html(this.innerHTML);  //here, $ like global variable
+    };
+	});
+};
+
 content_binding = function(root){
     //bind the "click entry add comment button" event
 	root.find('span.entry-comment').each( function(){
     this.onclick = function() {
-			  console.log("click entry comment");
 			  $(this).parent().parent().children(".action-area").toggle();
 				/*change color to be a active tab*/
 				if ($(this).hasClass("entry-comment-active")){
