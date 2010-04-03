@@ -1,11 +1,10 @@
 {namespace dc.template}
 
 /**
- * Greets a person and optionally a list of other people.
- * @param list The name of the person.
+ *adfa
  * @param trans the translation list.
  */
-{template .reviews}
+{template .head}
 <div class="nav-bar-container">
 	<div class="nav-bar">
 		<table class="nav-table">
@@ -37,9 +36,35 @@
 		<div class="goog-menu goog-menu-vertical" style="display: none;"/>
 	</div>
 </div>
+{/template}
 
+/**
+ * Greets a person and optionally a list of other people.
+ * @param list The name of the person.
+ * @param trans the translation list.
+ */
+{template .reviews}
+  {call .head}
+		{param trans: $trans /}
+  {/call}
   {foreach $entry in $list}
 		{call .review}
+		      {param entry: $entry /}
+		{/call}
+  {/foreach}
+{/template}
+
+/**
+ * Greets a person and optionally a list of other people.
+ * @param list The name of the person.
+ * @param trans the translation list.
+ */
+{template .searchResults}
+  {call .head}
+		{param trans: $trans /}
+  {/call}
+  {foreach $entry in $list}
+		{call .searchItem}
 		      {param entry: $entry /}
 		{/call}
   {/foreach}
@@ -62,12 +87,33 @@
 										<i>{$entry.subject.title}</i>
 						</span>
 						<div class="entry-secondary-snippet">{$entry.summary}</div>
-						<div class="uid">{$entry.id}</div>
 		</div>
-		<!--can I put the data structure in other place like Google Reader? here I have to let them all hidden-->
-		<div class="link" style="display: none;">{$entry.subject.link.image}</div>
 		<div class="content" style="display: none;">
     	
+		</div>
+  </div>
+{/template}
+
+/**
+ *One entry in search result
+ *@param entry haha
+ */
+{template .searchItem}
+	
+	<div class="entry">
+    <div class="entry-icons">
+      <div class="sta"></div>
+    </div>
+		<div class="entry-secondary">
+						<div class="entry-title">{$entry.title}</div>
+						<span class="entry-secondary-snippet">
+						</span>
+						<div class="entry-secondary-snippet">{$entry.author.name}| 
+							{$entry.attribute.publisher} | {$entry.attribute.pubdate}
+						</div>
+		</div>
+		<div class="content" style="display: none;">
+
 		</div>
   </div>
 {/template}

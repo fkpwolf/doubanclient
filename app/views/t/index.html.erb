@@ -12,21 +12,13 @@
   trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
 							"send" : "<%=t :send%>"};
 
-  jQuery.fn.log = function (msg) {
-  	console.log("%s: %o", msg, this);  
-  	return this;  
-	};
-
-  //Event.observe(window, 'load', init, false);
-  //$(document).log("ok, ready.").ready(init);//oh, the log is cool! can put it to java?
   $(document).ready(init);
   
   var menu_content = '';
   
-  var current_menu_id = '';
+  current_menu_id = '';
 
   function init(){
-	  console.log("....init");
     doFresh();
     page_loaded();
   };
@@ -40,11 +32,10 @@
     	url: '/t/refresh_entries',
     	data: 'id=most-popular-book-review',
     	success: function(data) { 
-				//trans should be sent from server. but it will go to complicated
 				$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
 				reviews_binding($('#entries'), data); //is this 'data' too big?
 			}
-  	}); //but how to pass authenticity_token with helper class provided, no need?
+  	});
   };
 
   function refreshMenu() {
@@ -79,29 +70,7 @@
 		});
   };
 
-  function Post(element) {
-    this.element = element;
-  };
-
-   Post.prototype = {
-        markRead: function(){
-            this.element.addClassName('read');
-        },
-        markUnread: function(){
-            this.element.removeClassName('read');
-        },
-        isRead: function(){
-            return this.element.hasClassName('read');
-        }
-   };
-
   function page_loaded(evt) {
-
-		//What's map function in jquery?
-    //var posts = $('div.entry-secondary').map(function(el){
-    //  return new Post(el);
-    //});
-
 
   //nearly same with logic of menu-button. FIXME
 	if($('#header-refresh') != null){
@@ -112,7 +81,6 @@
 	                      :url => { :action => :refresh_entries},
 	                      :complete => "page_loaded()"
 	    ) %>;
-	    //$('nav-title').innerHTML = familyMember.innerHTML; 
 	};
 	};
 			
@@ -125,22 +93,12 @@
 	  }; 
 	};
 
-	if($('#search-area-submit') != null){
-	  $('search-area-submit').onclick = function(){
-	    <%= remote_function(:update => "entries",
-		  	                :with=>"'search_criteria=' + $('search_criteria').value + '&subject_cat=' + $('subject_cat').value",
-	                        :url => { :action => :search},
-	                        :complete => "page_loaded(); current_menu_id='search'"
-	     ) %>;
-	  };
-  };
-	
-
 	//if I can use observer or event. 
 	if($('#search-tab') != null){
 	  $('#search-tab').bind('click', function(){
 		  activeTab(this);
 		  $('#entries').html($('#search-area').html());
+		  search_bind($('#entries'));
 	  });
   };
 
@@ -158,9 +116,12 @@
 			viewMenu();
 	  });
   };
-
-
   
+  //bind event
+  $(document).bind('SHOW_LIST', function(e, data, html_content) {
+		$('#entries').html(html_content);
+		reviews_binding($('#entries'), data); //DRY!!!
+	});
 
   }
 </script>

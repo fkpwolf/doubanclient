@@ -1,3 +1,7 @@
+/***
+  *a binding function should only access elements under root.
+  * use event to contact with other portlet
+  */
 reviews_binding = function(root, data){
 	
 	root.find("div.entry-secondary").each( function(index){
@@ -29,54 +33,32 @@ reviews_binding = function(root, data){
 	   if( entryDOM.detailContent === undefined){
 		  var pars = 'id=' + entryDOM.id + "&type=" + current_menu_id;
 		  if (current_menu_id=="search") {
-			var id = $$('div#current-entry .content .summary .detail-content')[0]
-		   	var myAjax = new Ajax.Updater(id,
-						'/t/expand',{ evalScripts:true, parameters: pars, onComplete: showResponse}
-				);
+			var id = $('div#current-entry .content .summary .detail-content')
+			$.ajax({url: '/t/expand', data: pars,
+				success: function(data){
+					entryDOM.detailContent = data; //this closure modify data of outer class. cool!
+					id.html(data);
+					$('div#current-entry .content .summary .cover-image')[0].src = entryDOM.link.image;
+				}
+			});
 		  } else{
-				$.ajax({ type: 'get',url: '/t/expand',data: pars,success: function(data) {
-												//$('div#current-entry .content .summary .detail-content')[0].innerHTML = data.html;
-												entryDOM.detailContent = data.html
-												$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);
-												$('div#current-entry .content').addClass("stollen");
-												var link = $('div#current-entry .link')[0].innerHTML;
-												$('div#current-entry .content .summary .cover-image')[0].src = link;
-												//FIXME can get from familymber?
-												//$('.div#current-entry')[0].scrollTo();//there are 2 scrollTo, oh, no other way.FIXME
-												//It looks that after ajax response came back, the position changed, so only one scrollTo didn't work
-												//and BUG: the last entry didn't scroll to top. FIXME
-									}  
-							 });
+				$.ajax({ type: 'get',url: '/t/expand',data: pars,
+				         success: function(data) {
+							entryDOM.detailContent = data.html
+							$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);	
+							$('div#current-entry .content .summary .cover-image')[0].src = entryDOM.subject.link.image;	
+						 }  
+				});
 		  };
 		} else {
 			$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);
 		};
 		
+		
     };//end of onclick
 
-	function showResponse222(originalRequest){
-			$('div#current-entry .content .summary .detail-content')[0].innerHTML = originalRequest.html;
-			$('div#current-entry .content').addClass("stollen");
-			var link = $('div#current-entry .link')[0].innerHTML;
-			$('div#current-entry .content .summary .cover-image')[0].src = link;
-			//FIXME can get from familymber?
-			//$('.div#current-entry')[0].scrollTo();//there are 2 scrollTo, oh, no other way.FIXME
-			//It looks that after ajax response came back, the position changed, so only one scrollTo didn't work
-			//and BUG: the last entry didn't scroll to top. FIXME
-	};
-	
-	function showResponse(originalRequest){
-		  //$$('div#current-entry .content .summary .detail-content')[0].innerHTML = originalRequest.responseText;
-		  $('div#current-entry .content')[0].addClassName("stollen");
-		  var link = $('div#current-entry .link')[0].innerHTML;
-		  $('div#current-entry .content .summary .cover-image')[0].src = link;
-		  //FIXME can get from familymber?
-		  $('div#current-entry')[0].scrollTo();//there are 2 scrollTo, oh, no other way.
-	  }
 
     });
-
-
 
 };
 
@@ -84,7 +66,7 @@ dc.test = function(){
 				console.log("look, I have namespace");
 };
 
-//did I need some namespace?
+//did I need some namespace, like dc.test?
 mysay_bind = function(page){
 	page.find("#miniblog-area-submit").bind('click', function(){
 		 $.ajax({
@@ -95,24 +77,30 @@ mysay_bind = function(page){
 
 //bind 'mine' menu
 my_menu_bind = function(root) {
-	root.find('div.menu-button').each( function(){
-	  this.onclick = function(){
-	    $('entries').html('');
-	    //current_menu_id = this.id;
-		  $.ajax({
+	root.find('#most-popular-book-review, #most-polular-movie-review').bind('click', function(){
+		$.ajax({
             type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
-						success: function(data) {
-							$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
-							reviews_binding($('#entries'), data); //DRY!!!
-					  }
+			success: function(data) {
+				current_menu_id = 'menu44444';
+				//$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
+				var content = dc.template.reviews({'list' :data, 'trans' : trans});
+				$(document).trigger('SHOW_LIST', [data, content]);
+			}
 		  });
-	    $('#nav-title').html(this.innerHTML);  //here, $ like global variable
-    };
-	});
+    });
+	root.find('#contact-miniblog').bind('click', function(){
+	    $('entries').html('');
+		$.ajax({
+            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
+			success: function(data) {
+				$('#entries').html(data);
+			}
+		 });
+    });
 };
 
+//bind the "click entry add comment button" event
 content_binding = function(root){
-    //bind the "click entry add comment button" event
 	root.find('span.entry-comment').each( function(){
     this.onclick = function() {
 			  $(this).parent().parent().children(".action-area").toggle();
@@ -143,5 +131,18 @@ content_binding = function(root){
 			alert("marked");
 			familyMemer.hasClassName('star-marked')
 		}
+	});
+};
+
+search_bind = function(root){
+	root.find('#search-area-submit').bind('click', function(){
+		$.ajax({type: 'post', url: '/t/search', 
+			data: 'search_criteria=' + root.find('#search_criteria').val() + '&subject_cat=' + root.find('#subject_cat').val(),
+			success: function(data) {
+				current_menu_id = 'search';  //global variable
+				var content = dc.template.searchResults({'list' :data, 'trans' : trans} );
+				$(document).trigger('SHOW_LIST', [data, content]);
+			}
+		 });
 	});
 }

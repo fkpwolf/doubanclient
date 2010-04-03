@@ -5,14 +5,34 @@ if (typeof dc == 'undefined') { var dc = {}; }
 if (typeof dc.template == 'undefined') { dc.template = {}; }
 
 
-dc.template.reviews = function(opt_data, opt_sb) {
+dc.template.head = function(opt_data, opt_sb) {
   var output = opt_sb || new soy.StringBuilder();
   output.append('<div class="nav-bar-container"><div class="nav-bar"><table class="nav-table"><tbody><tr><td class="nav-table-left"><div id="back-to-feeds" class="m-button back-to-feeds"><span class="m-button-contents">&laquo;', soy.$$escapeHtml(opt_data.trans.menu), '</span></div></td> <!--<td class="nav-table-middle"><div id="nav-title">None Title</div></td>--><td class="nav-table-right"><!--\t<div id="header-menu" class="m-button "><span class="m-button-contents"/></div>  --><div id="header-refresh" class="m-button "><span class="m-button-contents"/></div></td></tr></tbody></table><div id="nav-bar-shadow"/></div><div class="goog-menu goog-menu-vertical" style="display: none;"/></div></div>');
-  var entryList6 = opt_data.list;
-  var entryListLen6 = entryList6.length;
-  for (var entryIndex6 = 0; entryIndex6 < entryListLen6; entryIndex6++) {
-    var entryData6 = entryList6[entryIndex6];
-    dc.template.review({entry: entryData6}, output);
+  if (!opt_sb) return output.toString();
+};
+
+
+dc.template.reviews = function(opt_data, opt_sb) {
+  var output = opt_sb || new soy.StringBuilder();
+  dc.template.head({trans: opt_data.trans}, output);
+  var entryList9 = opt_data.list;
+  var entryListLen9 = entryList9.length;
+  for (var entryIndex9 = 0; entryIndex9 < entryListLen9; entryIndex9++) {
+    var entryData9 = entryList9[entryIndex9];
+    dc.template.review({entry: entryData9}, output);
+  }
+  if (!opt_sb) return output.toString();
+};
+
+
+dc.template.searchResults = function(opt_data, opt_sb) {
+  var output = opt_sb || new soy.StringBuilder();
+  dc.template.head({trans: opt_data.trans}, output);
+  var entryList16 = opt_data.list;
+  var entryListLen16 = entryList16.length;
+  for (var entryIndex16 = 0; entryIndex16 < entryListLen16; entryIndex16++) {
+    var entryData16 = entryList16[entryIndex16];
+    dc.template.searchItem({entry: entryData16}, output);
   }
   if (!opt_sb) return output.toString();
 };
@@ -20,7 +40,14 @@ dc.template.reviews = function(opt_data, opt_sb) {
 
 dc.template.review = function(opt_data, opt_sb) {
   var output = opt_sb || new soy.StringBuilder();
-  output.append('<div class="entry"><div class="entry-icons"><div class="sta"></div></div><div class="entry-secondary"><div class="entry-title">', soy.$$escapeHtml(opt_data.entry.title), '</div><span class="entry-secondary-snippet">', soy.$$escapeHtml(opt_data.entry.author.name), '|<i>', soy.$$escapeHtml(opt_data.entry.subject.title), '</i></span><div class="entry-secondary-snippet">', soy.$$escapeHtml(opt_data.entry.summary), '</div><div class="uid">', soy.$$escapeHtml(opt_data.entry.id), '</div></div><!--can I put the data structure in other place like Google Reader? here I have to let them all hidden--><div class="link" style="display: none;">', soy.$$escapeHtml(opt_data.entry.subject.link.image), '</div><div class="content" style="display: none;"></div></div>');
+  output.append('<div class="entry"><div class="entry-icons"><div class="sta"></div></div><div class="entry-secondary"><div class="entry-title">', soy.$$escapeHtml(opt_data.entry.title), '</div><span class="entry-secondary-snippet">', soy.$$escapeHtml(opt_data.entry.author.name), '|<i>', soy.$$escapeHtml(opt_data.entry.subject.title), '</i></span><div class="entry-secondary-snippet">', soy.$$escapeHtml(opt_data.entry.summary), '</div></div><div class="content" style="display: none;"></div></div>');
+  if (!opt_sb) return output.toString();
+};
+
+
+dc.template.searchItem = function(opt_data, opt_sb) {
+  var output = opt_sb || new soy.StringBuilder();
+  output.append('<div class="entry"><div class="entry-icons"><div class="sta"></div></div><div class="entry-secondary"><div class="entry-title">', soy.$$escapeHtml(opt_data.entry.title), '</div><span class="entry-secondary-snippet"></span><div class="entry-secondary-snippet">', soy.$$escapeHtml(opt_data.entry.author.name), '|', soy.$$escapeHtml(opt_data.entry.attribute.publisher), ' | ', soy.$$escapeHtml(opt_data.entry.attribute.pubdate), '</div></div><div class="content" style="display: none;"></div></div>');
   if (!opt_sb) return output.toString();
 };
 

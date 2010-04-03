@@ -145,7 +145,8 @@ render :partial => 'blog_entries'
 
 	#get full content of a review
 	def expand()
-					id = params['id'].scan(/review\/(\d*)/)[0]
+					#id = params['id'].scan(/review\/(\d*)/)[0]
+				  id = params['id']
 					type = params['type']
 					if type == "search" #expand a search result item
 					  #when type is search is like http://api.douban.com/book/subject/1103015
@@ -162,6 +163,7 @@ render :partial => 'blog_entries'
 					  end
 					  
 					else
+					  id = params['id'].scan(/review\/(\d*)/)[0]
 					  response = '';
   					open(	feed= "http://www.douban.com/j/review/#{id}/fullinfo?show_works=False") do |http|
   									response = http.read
@@ -246,7 +248,8 @@ render :partial => 'blog_entries'
       nil
     end
 
-    render :partial => 'search_result'
+    #render :partial => 'search_result'
+    render :json => @books.to_json
     
   end
   
