@@ -258,10 +258,16 @@ render :partial => 'blog_entries'
     content = params[:miniblog_content]
     #here %q and %Q is quite different on display of textmate
     #does textmate do some special for rails? if so, it will be ugly
-    response = get_access_token().post "/miniblog/saying", %Q{<?xml version='1.0' encoding='UTF-8'?>
+    resp = get_access_token().post "/miniblog/saying", %Q{<?xml version='1.0' encoding='UTF-8'?>
 <entry xmlns:ns0="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/">
 <content>#{content}</content>
 </entry>},  {"Content-Type" =>  "application/atom+xml"}
+
+    if resp.code == "201" #201 is too strange
+      render :text => "ok", :status => 201
+    else
+      render :text => "server error", :status => 403
+    end
     
   end
   

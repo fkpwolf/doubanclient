@@ -9,8 +9,7 @@
 <script language="javascript">
   //list all translation here will waste time. We should load just few data which is needful for specific template
 	//global variable.ugly.
-  trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>",
-							"send" : "<%=t :send%>"};
+  trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>", "send" : "<%=t :send%>"};
 
   $(document).ready(init);
   
@@ -120,7 +119,11 @@
   //bind event
   $(document).bind('SHOW_LIST', function(e, data, html_content) {
 		$('#entries').html(html_content);
-		reviews_binding($('#entries'), data); //DRY!!!
+		reviews_binding($('#entries'), data);
+	});
+	
+	$(document).bind('LOAD_LIST', function(){
+		$('#entries').html("<img src='../images/loading.gif'>");
 	});
 
   }
@@ -152,7 +155,7 @@
   <!--say something dialog-->
   <div id="miniblog-area" class='hidden'>
 	<div style="padding: 12px;">
-		<h4><%=t :SaySome_desc%></h4>
+		<h4><%=t :SaySome_desc%></h4><div id='response_msg'></div>
   		<textarea id='miniblog_content' name="miniblog_content"></textarea>
 		<input id='miniblog-area-submit' type="button" class="Butt"  value="<%=t :send%>"/>
 	</div>

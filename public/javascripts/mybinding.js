@@ -70,7 +70,14 @@ dc.test = function(){
 mysay_bind = function(page){
 	page.find("#miniblog-area-submit").bind('click', function(){
 		 $.ajax({
-            type: 'get', url: '/t/miniblog', data: 'miniblog_content=' + $('#miniblog_content').val()
+            type: 'get', url: '/t/miniblog', data: 'miniblog_content=' + $('#miniblog_content').val(),
+			success: function(){
+				page.find("#response_msg").html("successed.");
+				page.find("#miniblog_content").val("");
+			}, 
+			error: function(){
+				page.find("#response_msg").html("find error. Please try later.");
+			}
 		 });
 	});
 };
@@ -78,11 +85,11 @@ mysay_bind = function(page){
 //bind 'mine' menu
 my_menu_bind = function(root) {
 	root.find('#most-popular-book-review, #most-polular-movie-review').bind('click', function(){
+		$(document).trigger('LOAD_LIST');
 		$.ajax({
             type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
 			success: function(data) {
 				current_menu_id = 'menu44444';
-				//$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
 				var content = dc.template.reviews({'list' :data, 'trans' : trans});
 				$(document).trigger('SHOW_LIST', [data, content]);
 			}
@@ -136,6 +143,8 @@ content_binding = function(root){
 
 search_bind = function(root){
 	root.find('#search-area-submit').bind('click', function(){
+		//$(document).trigger('LOAD_LIST');
+		//$('#entries').html("<img src='../images/loading.gif'>");
 		$.ajax({type: 'post', url: '/t/search', 
 			data: 'search_criteria=' + root.find('#search_criteria').val() + '&subject_cat=' + root.find('#subject_cat').val(),
 			success: function(data) {
