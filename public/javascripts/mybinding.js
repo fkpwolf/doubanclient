@@ -8,6 +8,8 @@ reviews_binding = function(root, data){
 	  var entryDOM = data[index];
 	
 	  this.onclick = function() {
+		window.scrollTo(0, this.offsetTop);//no need setTimeout
+		
 		var entry = $(this).parent()[0]; //here need a $, ugly! confused!
 		var c = $(entry).children(".content");
 		if(c[0].style.display === "none"){
@@ -27,10 +29,12 @@ reviews_binding = function(root, data){
           }
           entry.id="current-entry";
         };
-				//this.scrollTo(); !!! FIXME
+		
+		
 		
 	   /*check if we have cached the detailed content*/
-	   if( entryDOM.detailContent === undefined){
+	 if (c[0].style.display !== "none"){
+	   if(entryDOM.detailContent === undefined){
 		  var pars = 'id=' + entryDOM.id + "&type=" + current_menu_id;
 		  if (current_menu_id=="search") {
 			var id = $('div#current-entry .content .summary .detail-content')
@@ -52,8 +56,15 @@ reviews_binding = function(root, data){
 		  };
 		} else {
 			$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);
+			//eee, ugly!!!
+			if (entryDOM.subject !== undefined)
+				$('div#current-entry .content .summary .cover-image')[0].src = entryDOM.subject.link.image;
+			else
+				$('div#current-entry .content .summary .cover-image')[0].src = entryDOM.link.image;
 		};
-		
+	 };
+	
+
 		
     };//end of onclick
 

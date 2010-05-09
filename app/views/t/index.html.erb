@@ -12,26 +12,30 @@
 
 <link rel="stylesheet" href="../stylesheets/reader.css" type="text/css">
 <link rel="stylesheet" href="../stylesheets/g.css" type="text/css">
-<script type="application/x-javascript">
-
-</script>
 
 <script language="javascript">
-
+/*
 if (navigator.userAgent.indexOf('iPhone') != -1) {
   (function ($) {
    var originalVal = $.fn.html;
 	 var hideURLbar = function() {window.scrollTo(0,1);};
    $.fn.html = function(value) {
+	   var ret = originalVal.call(this, value);
      if (typeof value != 'undefined') {
        // setter invoked, do processing
-       setTimeout(hideURLbar, 10);
+       setTimeout(hideURLbar, 100);
      }
-     return originalVal.call(this, value);
+     return ret;
    };
   })(jQuery);
 };
-
+*/
+var hideURLbar = function() {window.scrollTo(0,1);};
+var hideBar = function() {
+	  if (navigator.userAgent.indexOf('iPhone') != -1) {
+		  setTimeout(hideURLbar, 100);
+	  }
+	};
   //list all translation here will waste time. We should load just few data which is needful for specific template
 	//global variable.ugly.
   trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>", "send" : "<%=t :send%>"};
@@ -58,8 +62,10 @@ if (navigator.userAgent.indexOf('iPhone') != -1) {
     	url: '/t/refresh_entries',
     	data: 'id=most-popular-book-review',
     	success: function(data) { 
-				$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
-				reviews_binding($('#entries'), data); //is this 'data' too big?
+				//$('#entries').html(dc.template.reviews({'list' :data, 'trans' : trans} ));
+				//reviews_binding($('#entries'), data); //is this 'data' too big?
+			  var content = dc.template.reviews({'list' :data, 'trans' : trans} );
+				$(document).trigger('SHOW_LIST', [data, content]);
 			}
   	});
   };
@@ -143,10 +149,11 @@ if (navigator.userAgent.indexOf('iPhone') != -1) {
 	  });
   };
   
-  //bind event
+  //a control center. make sence. different from function invoking.
   $(document).bind('SHOW_LIST', function(e, data, html_content) {
 		$('#entries').html(html_content);
 		reviews_binding($('#entries'), data);
+		hideBar();
 	});
 	
 	$(document).bind('LOAD_LIST', function(){
@@ -212,7 +219,6 @@ if (navigator.userAgent.indexOf('iPhone') != -1) {
 	<br><br><br>
 	zudou.net
 	<!--below is used for getting rid of toolbar at iPhone-->
-	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
 </body>
 </html>
