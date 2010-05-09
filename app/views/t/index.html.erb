@@ -14,22 +14,7 @@
 <link rel="stylesheet" href="../stylesheets/g.css" type="text/css">
 
 <script language="javascript">
-/*
-if (navigator.userAgent.indexOf('iPhone') != -1) {
-  (function ($) {
-   var originalVal = $.fn.html;
-	 var hideURLbar = function() {window.scrollTo(0,1);};
-   $.fn.html = function(value) {
-	   var ret = originalVal.call(this, value);
-     if (typeof value != 'undefined') {
-       // setter invoked, do processing
-       setTimeout(hideURLbar, 100);
-     }
-     return ret;
-   };
-  })(jQuery);
-};
-*/
+
 var hideURLbar = function() {window.scrollTo(0,1);};
 var hideBar = function() {
 	  if (navigator.userAgent.indexOf('iPhone') != -1) {
