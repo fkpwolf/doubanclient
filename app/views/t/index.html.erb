@@ -1,3 +1,10 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0.6666" />
+  <title>zudou</title>
+
 <script src="../javascripts/jquery-1.4.2.js"></script>
 <script src="../javascripts/soyutils.js"></script>
 <script src="../javascripts/dc-template.js"></script>
@@ -5,12 +12,30 @@
 
 <link rel="stylesheet" href="../stylesheets/reader.css" type="text/css">
 <link rel="stylesheet" href="../stylesheets/g.css" type="text/css">
+<script type="application/x-javascript">
+
+</script>
 
 <script language="javascript">
+
+if (navigator.userAgent.indexOf('iPhone') != -1) {
+  (function ($) {
+   var originalVal = $.fn.html;
+	 var hideURLbar = function() {window.scrollTo(0,1);};
+   $.fn.html = function(value) {
+     if (typeof value != 'undefined') {
+       // setter invoked, do processing
+       setTimeout(hideURLbar, 10);
+     }
+     return originalVal.call(this, value);
+   };
+  })(jQuery);
+};
+
   //list all translation here will waste time. We should load just few data which is needful for specific template
 	//global variable.ugly.
   trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>", "send" : "<%=t :send%>"};
-
+	
   $(document).ready(init);
   
   var menu_content = '';
@@ -21,6 +46,8 @@
     doFresh();
     page_loaded();
   };
+
+
 
   function doFresh(){
     $('#entries').innerHTML = '';
@@ -128,7 +155,8 @@
 
   }
 </script>
-
+</head>
+<body>
 <div id="nav">
 			<ul id="nav_main">
 				
@@ -164,7 +192,7 @@
   <div id="search-area" class='hidden'>
 	<div style="padding: 12px;">
 		<h4><%=t :search_desc%></h4>
-  		<input id='search_criteria' name="search_criteria" class="search-field"></input>
+  		<input id='search_criteria' name="search_criteria" class="search-field"/>
 		<select name="subject_cat" id="subject_cat" style="width:100%;">
 			<option value="book"><%=t :book%></option>
 			<option value="movie"><%=t :movie%></option>
@@ -181,9 +209,12 @@
 	any problem please send to fkpwolf At gmail.com
 	<br>
 	or submit <a href="http://code.google.com/p/doubanclient/issues/list">here</a>. Thanks!
-	<br><br>
+	<br><br><br>
 	zudou.net
+	<!--below is used for getting rid of toolbar at iPhone-->
+	<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 </div>
-
+</body>
+</html>
 
 
