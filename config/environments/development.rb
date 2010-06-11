@@ -16,4 +16,6 @@ config.action_controller.perform_caching             = false
 # Don't care if the mailer can't send
 config.action_mailer.raise_delivery_errors = false
 
-REGISTRY[:url_callback] = "http://192.168.1.100:3000/t/index"
+#blow is for ipod touch testing
+#REGISTRY[:url_callback] = "http://192.168.1.100:3000/t/index"
+REGISTRY[:url_callback] = "http://127.0.0.1:3000/t/index"

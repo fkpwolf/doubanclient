@@ -30,7 +30,7 @@ class Spider
     #  :body => "href=http://book.douban.com/review/3105165/...http://book.douban.com/review/3103980//..http://book.douban.com/review/3103703/http://book.douban.com/review/3105110/http://book.douban.com/review/3105208/")
     
     response = ''
-		open(	feed= "http://www.douban.com/#{subject}/review/best/") do |http|
+		open(	feed= "http://#{subject}.douban.com/review/best/") do |http|
 		  response = http.read
 		end
 		puts "response is:" << response
