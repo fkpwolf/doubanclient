@@ -1,1 +1,8 @@
 3rd ruby lib: fakeweb, oauth
+
+
+gem install json
+
+
+export GEM_HOME=/home/fkpwolf/.gem
+export GEM_HOME=/home/fkpwolf/.gem/ruby/1.8/gems

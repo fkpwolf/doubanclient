@@ -1,55 +1,92 @@
-require 'caches.rb'
+#require 'caches.rb'
 require 'open-uri'
 require'oauth'
 require 'oauth/consumer'
 
-def run_before(m)  
-  alias_method "__before__#{m}", m  
-  define_method(m) { |*arg| puts "hahah!!!"; yield(*arg); send("__before__#{m}", *arg);}  
-end
 
-class Net::HTTP
-  run_before("get")
-end
 
 class Spider 
-  extend Caches
-  #def self.fetch_book_reviews()
-  #  fetch_reviews("book")
-  #end
-  
-  #def self.fetch_movie_reviews()
-  #  fetch_reviews("movie")
-  #end
+#  extend Caches
   
   #this cache didn't care parameters. Looks NOT correct
   def self.fetch_reviews(subject)
-    puts "--fetch_review..."
-    
-    #FakeWeb.register_uri(:get, "http://www.douban.com/book/review/best/", 
-    #  :body => "href=http://book.douban.com/review/3105165/...http://book.douban.com/review/3103980//..http://book.douban.com/review/3103703/http://book.douban.com/review/3105110/http://book.douban.com/review/3105208/")
-    
+    Rails.logger.info "------ fetch_reviews----"
     response = ''
 		open(	feed= "http://#{subject}.douban.com/review/best/") do |http|
 		  response = http.read
 		end
-		puts "response is:" << response
 		myarray = response.scan(/review\/(\d*)\//)
-		books = Array.new #can I not define type here?
+	
 		myarray.uniq.to_a.each { |id|
-			books << get_review(id)
+		  sleep(5)
+			cache = Cache.new
+			cache.subject = subject
+			cache.content_type = 'review'
+			cache.content=get_review(id)
+			cache.save
 		}
-		books
+  end
+  
+  def self.fetch_top10(subject, fix)
+    Rails.logger.info "------ fetch_top10----"
+    response = ''
+    feed = "http://#{subject}.douban.com/chart"
+    if( fix == '123' ) #non-virtual book ranking list
+      feed = "http://#{subject}.douban.com/chart?subcat=F"
+    elsif( fix == '134') #the latest book
+      feed = "http://book.douban.com/latest";
+    end
+		open( feed	) do |http|
+		  response = http.read
+		end
+		##################################################
+		if(subject == 'book')
+		  aclass = 'fleft'
+		elsif(subject == 'movie')
+		  aclass = 'nbg'
+	  end
+	  ##################################################
+	  if ( fix == '134')
+	    reg = /a href="http:\/\/#{subject}.douban.com\/subject\/(\d*)\/"/
+	  elsif ( fix == '90')
+  	    reg = /a onclick="moreurl\(this, \{from:'week'\}\)" href="http:\/\/#{subject}.douban.com\/subject\/(\d*)\/"/
+	  elsif ( subject != 'music')
+	    reg = /a class="#{aclass}" href="http:\/\/#{subject}.douban.com\/subject\/(\d*)\/"/
+    else
+      reg = /a href="http:\/\/#{subject}.douban.com\/subject\/(\d*)\/"/
+    end
+    puts reg
+    myarray = response.scan(reg)
+		#books = Array.new #can I not define type here?
+		myarray.to_a.each { |id|
+		  sleep(3)
+			#books << get_subject(id, subject)
+			cache = Cache.new
+			cache.subject = subject
+			cache.fix = fix
+			cache.content_type = 'subject'
+			cache.content=get_subject(id, subject)
+			cache.save
+		}
   end
   
   def self.get_review(id="")
-					resp=get_access_token().get("/review/#{id.to_s}")
+					resp=get_access_token().get("/review/#{id.to_s}?alt=json")
 					if resp.code=="200"
 									atom=resp.body
-									Douban::Review.new(atom)
 					else
 									puts resp
 									nil
+					end
+	end
+	
+	def self.get_subject(id="", type="book")
+					resp=get_access_token().get("/#{type}/subject/#{id.to_s}?alt=json")
+					if resp.code=="200"
+									atom=resp.body
+					else
+					    puts resp
+							nil
 					end
 	end
 	
@@ -71,5 +108,6 @@ class Spider
 					)
 	end
   
-  class_caches :fetch_reviews, :timeout => 30.minutes
+  #class_caches :fetch_reviews, :timeout => 1440.minutes #one day 24 hours
+  #class_caches :fetch_top10, :timeout => 1440.minutes
 end

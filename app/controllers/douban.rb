@@ -22,9 +22,7 @@ module Douban
 												attr_accessor attr
 								end
 								def initialize(atom='')
-								        puts atom
-								        puts "------"
-												doc=REXML::Document.new(atom)
+								       	doc=REXML::Document.new(atom)
 												id=REXML::XPath.first(doc,"//id")
 												@id=id.text if id
 												title=REXML::XPath.first(doc,"//title")
@@ -60,7 +58,7 @@ module Douban
 																@attribute[attribute.attributes['name']]=attribute.text
 												end
 												@rating={}
-												rating=REXML::XPath.first(doc,"//rating")
+												rating=REXML::XPath.first(doc,"//gd:rating")
 												if rating
 																@rating['min']=rating.attributes['min'] 
 																@rating['numRaters']=rating.attributes['numRaters'] 
@@ -159,6 +157,7 @@ module Douban
 												attr_accessor attr
 								end
 								def initialize(atom)
+								        atom = atom.to_s.gsub!('gd:', '') #when find all reviews of a subject
 												doc=REXML::Document.new(atom)
 												subject=REXML::XPath.first(doc,"//entry/db:subject")
 												#remove db:, otherwise there is error 'Undefined prefix'
@@ -243,7 +242,7 @@ module Douban
              attr_accessor attr
            end
            def initialize(atom)
-             atom = atom.to_s.gsub!('db:', '') ####ri,,,,,,
+             atom = atom.to_s.gsub('db:', '') ####ri,,,,,,
              doc=REXML::Document.new(atom)
              title=REXML::XPath.first(doc,"//entry/title")
              @title=title.text if title

@@ -4,6 +4,7 @@ require 'douban'
 require'oauth'
 require 'oauth/consumer'
 require 'net/http'
+require 'active_support/json/backends/jsongem'
 
 require'rexml/document' #ri, ugly
 
@@ -11,6 +12,14 @@ require "erb"
 
 require "spider"
 include ERB::Util
+
+ #Then we have to create an object. Can we get that like js without creating a new Class?
+class JsonList
+   def initialize(entry, title)
+     @entry = entry
+     @title = title
+   end
+ end
 
 class TController < ApplicationController
   def index
@@ -29,35 +38,67 @@ class TController < ApplicationController
 
   #get all reviews of one book
 	def reviews_of_a_book
-					puts 't_controller.refresh'
-
-=begin
-	proxy_addr = 'proxy.cognizant.com'
-	proxy_port = 6050
-	res = Net::HTTP::Proxy(proxy_addr, proxy_port).start('api.douban.com') { |http|
-					http.get('/movie/subject/1424406/reviews')
-	}
-	response = res.body
-=end	
-open(	feed= "http://api.douban.com/movie/subject/1424406/reviews") do |http|
-	response = http.read    
-	result = RSS::Parser.parse(response, false)
-	@items = result.items
-end				
-render :partial => 'blog_entries'
+    resp=get_access_token().get("/#{params[:type]}/subject/#{params[:id]}/reviews")
+    doc=REXML::Document.new(resp.body)
+    @reviews=[]
+    REXML::XPath.each(doc,"//entry") do |entry|
+      @reviews << Douban::Review.new(entry.to_s)
+    end
+    
+    render :json => @reviews.to_json
 	end
 
 
-  def get_popular_reviews(subject="book")
-    #if(subject == "book")
-		#  @books = Spider.fetch_book_reviews().sort_by{rand}[1..6]
-		#else
-		#  @books = Spider.fetch_movie_reviews().sort_by{rand}[1..6]
-	  #end
-	  @books = Spider.fetch_reviews(subject).sort_by{rand}[1..6]
-		
-		#render :partial => 'review_entries'
-		render :json => @books.to_json
+  def get_popular_reviews()
+    subject = params[:type]
+    reviews = Array.new #can I use duck type here?
+    Cache.find(:all, :conditions => "subject='#{subject}' and content_type='review'").each do |cache|
+      #reviews << ActiveSupport::JSON.decode(cache.content), this approach has bug.
+      #ref:https://rails.lighthouseapp.com/projects/8994/tickets/2182-activesupportjsondecode-cannot-parse-output-from-to_json
+      reviews << ActiveSupport::JSON::Backends::JSONGem.decode(cache.content)
+    end
+    reviews = reviews.sort_by{rand}[1..8]
+    @ret = JsonList.new(reviews, 'zudou gene')
+    render :json => @ret.to_json #decode and encode, other way?
+  end
+  
+  def get_top10_subject()
+    subject = params[:type]
+    fix = params[:fix]
+    if (fix == nil or fix == '')
+      puts "get a null fix, set it to default 000"
+      fix = "000"
+    end
+    subjects = Array.new #can I not define type here?
+    Cache.find(:all, :conditions => "subject='#{subject}' and content_type='subject' and fix='#{fix}'").each do |cache|
+      subjects << ActiveSupport::JSON::Backends::JSONGem.decode(cache.content)
+    end
+    @ret = JsonList.new(subjects, 'zudou gene')
+	  render :json => @ret.to_json
+  end
+  
+  def refresh_cache
+    logger.info "refresh_cache at:" + Time.new.to_s
+    Cache.delete_all
+    fetch_all
+    logger.info "refresh_cache done at:" + Time.new.to_s
+    render :text => "ok"
+  end
+  
+  def fetch_all
+    logger.info "start fetch_all at:" + Time.new.to_s
+    puts "start fetch_all at:" + Time.new.to_s
+    Spider.fetch_reviews("book")
+    Spider.fetch_reviews("movie")
+    Spider.fetch_reviews("music")
+    Spider.fetch_top10("book", '000') #null fix
+    Spider.fetch_top10("book", '123')
+    Spider.fetch_top10("book", '134')
+    Spider.fetch_top10("movie", '000') #null fix
+    Spider.fetch_top10("movie", '90')
+    Spider.fetch_top10("music", '000') #null fix
+    logger.info "fetch_all done at:" + Time.new.to_s
+    puts "fetch_all done at:" + Time.new.to_s
   end
   
   #get summary review of one book, or one movie
@@ -77,6 +118,21 @@ render :partial => 'blog_entries'
 					if resp.code=="200"
 									atom=resp.body
 									Douban::Book.new(atom)
+					else
+									nil
+					end
+	end
+	
+	def get_subjectJSON(id = "", type = "book")
+          id = params[:id]
+          type = params[:type]
+          
+          puts "id is:" + id
+					resp=get_access_token().get("/#{type}/subject/#{id.to_s}")
+					if resp.code == "200"
+									atom = resp.body
+									@s = Douban::Book.new(atom)
+									render :json => @s.to_json
 					else
 									nil
 					end
@@ -224,7 +280,8 @@ render :partial => 'blog_entries'
       nil
     end
     
-    render :partial => 'contact_miniblog'
+    #render :partial => 'contact_miniblog'
+    render :json => @miniblogs.to_json
     
   end
   
@@ -317,12 +374,13 @@ render :partial => 'blog_entries'
       </entry>
       }
     resp=get_access_token().post("/collection",entry,{"Content-Type"=>"application/atom+xml"})
-    if resp.code=="201"
-      true
-    else
-      puts "douban complain:" << resp.body
-      false
-    end
+    render :json =>@books.to_json
+ #   if resp.code=="201"
+ #      true
+ #   else
+ #     puts "douban complain:" << resp.body
+ #     false
+ #   end
   end
       
 
