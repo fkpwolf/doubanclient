@@ -1,0 +1,18 @@
+<p>
+  <b>Subject:</b>
+  <%=h @cache.subject %>
+</p>
+
+<p>
+  <b>Fix:</b>
+  <%=h @cache.fix %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%=h @cache.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_cache_path(@cache) %> |
+<%= link_to 'Back', caches_path %>

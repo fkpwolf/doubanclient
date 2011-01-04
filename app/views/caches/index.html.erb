@@ -1,0 +1,21 @@
+<h1>Listing caches</h1>
+
+<table>
+  <tr>
+    <th>Subject</th>
+    <th>Fix</th>
+    <th>Content</th>
+  </tr>
+
+<% @caches.each do |cache| %>
+  <tr>
+    <td><%=h cache.subject %></td>
+    <td><%=h cache.fix %></td>
+    <td><%=h cache.content %></td>
+    <td><%= link_to 'Show', cache %></td>
+    <td><%= link_to 'Destroy', cache, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
