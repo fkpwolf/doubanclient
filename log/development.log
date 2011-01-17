@@ -30270,6 +30270,7 @@ Completed in 903ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries
 Processing TController#refresh_entries (for 127.0.0.1 at 2010-12-20 10:17:57) [POST]
   Parameters: {"id"=>"contact-miniblog"}
 Completed in 988ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+<<<<<<< HEAD
 server starting... at:Mon Jan 10 22:43:01 +0800 2011
 
 
@@ -30333,11 +30334,59 @@ Completed in 457ms (View: 48, DB: 1) | 200 OK [http://127.0.0.1/t/index?oauth_to
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-10 22:43:33) [POST]
+=======
+server starting... at:Thu Jan 13 15:42:03 +0800 2011
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 15:42:12) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=870526a26e5f0252950f73e74b1d06f6&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 8897ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:42:41) [GET]
+  Parameters: {"oauth_token"=>"870526a26e5f0252950f73e74b1d06f6"}
+
+OAuth::Unauthorized (400 Bad Request):
+  oauth (0.4.0) lib/oauth/consumer.rb:215:in `token_request'
+  oauth (0.4.0) lib/oauth/tokens/request_token.rb:18:in `get_access_token'
+  app/controllers/t_controller.rb:163:in `continueAuth'
+  app/controllers/t_controller.rb:27:in `index'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 15:42:54) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=6b57fab0a10612814207f011e3123783&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 333ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:42:57) [GET]
+  Parameters: {"oauth_token"=>"6b57fab0a10612814207f011e3123783"}
+  [4;36;1mVisitlog Create (1.0ms)[0m   [0;1mINSERT INTO "visitlogs" ("created_at", "updated_at", "uid", "last_visit", "ip") VALUES('2011-01-13 07:42:58', '2011-01-13 07:42:58', '1053491', '2011-01-13 15:42:58', '127.0.0.1')[0m
+Rendering t/index
+Completed in 1645ms (View: 116, DB: 1) | 200 OK [http://127.0.0.1/t/index?oauth_token=6b57fab0a10612814207f011e3123783]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:43:00) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (87.2ms)
 Rendered rescues/_request_and_response (0.7ms)
@@ -30394,11 +30443,51 @@ Completed in 66ms (View: 65, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_tok
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 10:18:52) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (73.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#menu (for 127.0.0.1 at 2011-01-13 15:43:10) [GET]
+Rendered t/_menu (50.0ms)
+Completed in 121ms (View: 117, DB: 0) | 200 OK [http://127.0.0.1/t/menu]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:43:12) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 2189ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:43:18) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 2483ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:43:45) [GET]
+Rendering t/index
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/t/]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:43:46) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (31.8ms)
 Rendered rescues/_request_and_response (1.2ms)
@@ -30427,11 +30516,41 @@ Completed in 5ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 10:21:37) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 15:43:56) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 354ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:43:57) [GET]
+Rendering t/index
+Completed in 19ms (View: 13, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:43:58) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (29.3ms)
 Rendered rescues/_request_and_response (0.4ms)
@@ -30450,11 +30569,36 @@ Completed in 72ms (View: 71, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_tok
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 10:23:56) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (244.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:44:13) [GET]
+Rendering t/index
+Completed in 20ms (View: 14, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:44:15) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (29.8ms)
 Rendered rescues/_request_and_response (0.4ms)
@@ -30473,11 +30617,36 @@ Completed in 11ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_toke
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 10:24:18) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (69.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:44:22) [GET]
+Rendering t/index
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:44:23) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (30.1ms)
 Rendered rescues/_request_and_response (0.6ms)
@@ -30537,11 +30706,41 @@ Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 11:09:22) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (228.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 15:44:26) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 324ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:44:27) [GET]
+Rendering t/index
+Completed in 20ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:44:28) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (101.8ms)
 Rendered rescues/_request_and_response (0.3ms)
@@ -30555,11 +30754,36 @@ Completed in 6ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 11:09:45) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:44:34) [GET]
+Rendering t/index
+Completed in 20ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:44:35) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (29.2ms)
 Rendered rescues/_request_and_response (0.3ms)
@@ -30591,11 +30815,41 @@ Completed in 6ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 11:12:00) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 15:44:46) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 353ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:44:47) [GET]
+Rendering t/index
+Completed in 19ms (View: 15, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:44:48) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (32.7ms)
 Rendered rescues/_request_and_response (0.4ms)
@@ -30615,11 +30869,41 @@ Completed in 6ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 11:12:51) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (68.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 15:45:34) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 310ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 15:45:35) [GET]
+Rendering t/index
+Completed in 21ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 15:45:37) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (108.3ms)
 Rendered rescues/_request_and_response (0.3ms)
@@ -30726,11 +31010,73 @@ Completed in 6ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 11:29:06) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-13 16:43:32) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=12753dfaef9df063375fb9f0ced9d129&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 449ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 16:43:37) [GET]
+  Parameters: {"oauth_token"=>"12753dfaef9df063375fb9f0ced9d129"}
+Rendering t/index
+
+ActionView::TemplateError (wrong number of arguments (1 for 2)) on line #8 of app/views/t/index.html.erb:
+5: 	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0.6666" />
+6:   <title>zudou</title>
+7: 
+8: <%=javascript_src_tag("../javascripts/jquery-1.4.2.js")%>
+9: <script src="../javascripts/soyutils.js"></script>
+10: <script src="../javascripts/dc-template.js"></script>
+11: <script src="../javascripts/mybinding.js"></script>
+
+    app/views/t/index.html.erb:8:in `javascript_src_tag'
+    app/views/t/index.html.erb:8
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (90.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 16:45:58) [GET]
+  Parameters: {"oauth_token"=>"12753dfaef9df063375fb9f0ced9d129"}
+Rendering t/index
+Completed in 198ms (View: 194, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=12753dfaef9df063375fb9f0ced9d129]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 16:46:00) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (30.0ms)
 Rendered rescues/_request_and_response (0.4ms)
@@ -30750,11 +31096,37 @@ Completed in 131ms (View: 129, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_t
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 16:55:34) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 16:46:51) [GET]
+  Parameters: {"oauth_token"=>"12753dfaef9df063375fb9f0ced9d129"}
+Rendering t/index
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=12753dfaef9df063375fb9f0ced9d129]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 16:46:52) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (33.7ms)
 Rendered rescues/_request_and_response (1.5ms)
@@ -30768,11 +31140,37 @@ Completed in 6ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 16:55:44) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (211.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 16:52:50) [GET]
+  Parameters: {"oauth_token"=>"12753dfaef9df063375fb9f0ced9d129"}
+Rendering t/index
+Completed in 47ms (View: 42, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=12753dfaef9df063375fb9f0ced9d129]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 16:52:52) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (32.0ms)
 Rendered rescues/_request_and_response (0.5ms)
@@ -30786,11 +31184,37 @@ Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 16:58:50) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (75.0ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 16:53:29) [GET]
+  Parameters: {"oauth_token"=>"12753dfaef9df063375fb9f0ced9d129"}
+Rendering t/index
+Completed in 42ms (View: 38, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=12753dfaef9df063375fb9f0ced9d129]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 16:53:31) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (32.8ms)
 Rendered rescues/_request_and_response (0.4ms)
@@ -31054,11 +31478,38 @@ Rendering rescues/layout (internal_server_error)
 
 
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-15 19:10:52) [POST]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (72.0ms)
+Rendered rescues/_request_and_response (0.0ms)
+Rendering rescues/layout (internal_server_error)
+server starting... at:Thu Jan 13 17:09:51 +0800 2011
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-13 17:10:23) [GET]
+  Parameters: {"oauth_token"=>"12753dfaef9df063375fb9f0ced9d129"}
+Rendering t/index
+Completed in 48ms (View: 44, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=12753dfaef9df063375fb9f0ced9d129]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-13 17:10:25) [POST]
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
   Parameters: {"id"=>"most-popular-book-review"}
 
 ArgumentError (wrong number of arguments (1 for 0)):
   app/controllers/t_controller.rb:245:in `get_popular_reviews'
   app/controllers/t_controller.rb:245:in `refresh_entries'
+<<<<<<< HEAD
 
 Rendered rescues/_trace (113.2ms)
 Rendered rescues/_request_and_response (0.3ms)
@@ -31455,3 +31906,19 @@ Completed in 873ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-17 20:47:19) [POST]
   Parameters: {"id"=>"contact-miniblog"}
 Completed in 5257ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+=======
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendered rescues/_trace (71.0ms)
+Rendered rescues/_request_and_response (2.0ms)
+Rendering rescues/layout (internal_server_error)
+>>>>>>> dffebf84d89a2a740dfa9942b9071fa79fe49cce
