@@ -239,7 +239,6 @@ class TController < ApplicationController
   #when refresh entries div, all button will go into here
   def refresh_entries
     id = params['id']
-    puts "refresh_entries...." << id
     case id
     when "most-popular-book-review"
       get_popular_reviews('book')

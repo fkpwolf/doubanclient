@@ -94,27 +94,46 @@ mysay_bind = function(page){
 };
 
 //bind 'mine' menu
-my_menu_bind = function(root) {
-	root.find('#most-popular-book-review, #most-polular-movie-review').bind('click', function(){
-		$(document).trigger('LOAD_LIST');
-		$.ajax({
-            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
-			success: function(data) {
-				current_menu_id = 'menu44444';
-				var content = dc.template.reviews({'list' :data, 'trans' : trans});
-				$(document).trigger('SHOW_LIST', [data, content]);
-			}
-		  });
-    });
-	root.find('#contact-miniblog').bind('click', function(){
-	    $('entries').html('');
-		$.ajax({
-            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
-			success: function(data) {
-				$('#entries').html(data);
-			}
-		 });
-    });
+my_menu_bind = function(root, menuJson) {
+	$(menuJson).each(function(index, item){
+		var a = $("<div id='" + item.id +"' class='menu-button'><div class='sub-item'>" + item.label + "</div></div>");
+		if ( item.id === "most-popular-book-review" || item.id === "most-polular-movie-review"){
+			a.bind('click', function(){
+				$(document).trigger('LOAD_LIST');
+				$.ajax({
+		            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
+					success: function(data) {
+						current_menu_id = 'menu44444';
+						var content = dc.template.reviews({'list' :data, 'trans' : trans});
+						$(document).trigger('SHOW_LIST', [data, content]);
+					}
+				  });
+		    });
+		}
+		if(item.id==='contact-miniblog'){
+			a.bind('click', function(){
+			    $('entries').html('');
+				$.ajax({
+		            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
+					success: function(data) {
+						//$('#entries').html(data);
+						root.empty();
+						miniblog_binding(root, data);
+					}
+				 });
+		    });
+		}
+		root.append(a);
+	});
+};
+
+miniblog_binding = function(node, data){
+	$(data).each(function(index, item){
+		var a = $("<div class='entry'><div class='entry-secondary'><div class='entry-title'> " 
+			+ item.author.name +"</div><span class='entry-secondary-snippet'>"
+			+ item.title + "</span></div></div>");
+		node.append(a);
+	});
 };
 
 //bind the "click entry add comment button" event

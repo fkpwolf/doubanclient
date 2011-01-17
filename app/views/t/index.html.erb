@@ -27,7 +27,11 @@ var hideBar = function() {
 	
   $(document).ready(init);
   
-  var menu_content = '';
+  var menu_content = [{ id:'mail-box', label:'<%=t :my_mail_box%>'}, 
+											{id: 'most-popular-book-review', label:'<%=t :The_most_Popular_book_review%>'},
+											{id: 'most-polular-movie-review', label:'<%=t :The_most_Popular_movie_review%>'},
+											{id: 'contact-miniblog', label:'<%=t :some_mini_blog_nearby%>'}
+											];
   
   current_menu_id = '';
 
@@ -67,12 +71,8 @@ var hideBar = function() {
   };
 
   function viewMenu(){
-    if ( menu_content === '') {
-      refreshMenu();
-    } else {
-      $('#entries').html(menu_content);
-			my_menu_bind($('#entries'));
-    }
+			$('#entries').empty();
+			my_menu_bind($('#entries'), menu_content);
   };
 
   function activeTab(element){
@@ -154,7 +154,7 @@ var hideBar = function() {
 				
 				<li id="logo_tab" class="unselected">
 					<a type="nav" href=".">
-						<p>&nbsp;<span style="color:white;background-color:red;"><%=t :app_name1%></span><span style="color:white;background-color:#006600;"><%=t:app_name2%></span>reload</p>
+						<p>&nbsp;<span style="color:white;background-color:red;"><%=t :app_name1%></span><span style="color:white;background-color:#006600;"><%=t:app_name2%></span>&nbsp;reload</p>
 					</a>
 				</li>
 				<li id="say-tab" class="unselected"><a type="nav" href="#search"><%=t :SaySome%></a></li>
@@ -205,6 +205,7 @@ var hideBar = function() {
 	zudou.net
 	<!--below is used for getting rid of toolbar at iPhone-->
 </div>
+
 </body>
 </html>
 
