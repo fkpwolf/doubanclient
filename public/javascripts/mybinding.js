@@ -2,6 +2,19 @@
   *a binding function should only access elements under root.
   * use event to contact with other portlet
   */
+
+//this mehtod convert douban returned json to more readable json
+//like remove '$t'...
+convert2Review = function(json){
+	var json = json || [];
+	var ret = [];
+	for (var i in json){
+		var review = DOUBAN.parseReview(json[i]);
+		ret.push(review);
+	}	
+	return ret;
+};
+
 reviews_binding = function(root, data){
 	
 	root.find("div.entry-secondary").each( function(index){
@@ -47,11 +60,11 @@ reviews_binding = function(root, data){
 			});
 		  } else{
 				$.ajax({ type: 'get',url: '/t/expand',data: pars,
-				         success: function(data) {
+				   success: function(data) {
 							entryDOM.detailContent = data.html
 							$('div#current-entry .content .summary .detail-content').html(entryDOM.detailContent);	
 							$('div#current-entry .content .summary .cover-image')[0].src = entryDOM.subject.link.image;	
-						 }  
+					 }  
 				});
 		  };
 		} else {
@@ -101,18 +114,22 @@ my_menu_bind = function(root, menuJson) {
 			a.bind('click', function(){
 				$(document).trigger('LOAD_LIST');
 				$.ajax({
-		            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
+		      type: 'post', url: '/t/get_popular_reviews', data: 'type=book',
 					success: function(data) {
 						current_menu_id = 'menu44444';
-						var content = dc.template.reviews({'list' :data, 'trans' : trans});
-						$(document).trigger('SHOW_LIST', [data, content]);
+						var reviews = convert2Review(data.entry);
+						var content = dc.template.reviews({'list' : reviews, 'trans' : trans});
+						$(document).trigger('SHOW_LIST', [reviews, content]);
+					},
+					error: function(){
+						$(document).trigger("AJAX_ERROR");
 					}
 				  });
 		    });
 		}
 		if(item.id==='contact-miniblog'){
 			a.bind('click', function(){
-			    $('entries').html('');
+			  $(document).trigger('LOAD_LIST');
 				$.ajax({
 		            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
 					success: function(data) {
@@ -184,4 +201,6 @@ search_bind = function(root){
 			}
 		 });
 	});
-}
+};
+
+

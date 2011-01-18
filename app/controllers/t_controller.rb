@@ -53,8 +53,6 @@ class TController < ApplicationController
     subject = params[:type]
     reviews = Array.new #can I use duck type here?
     Cache.find(:all, :conditions => "subject='#{subject}' and content_type='review'").each do |cache|
-      #reviews << ActiveSupport::JSON.decode(cache.content), this approach has bug.
-      #ref:https://rails.lighthouseapp.com/projects/8994/tickets/2182-activesupportjsondecode-cannot-parse-output-from-to_json
       reviews << ActiveSupport::JSON::Backends::JSONGem.decode(cache.content)
     end
     reviews = reviews.sort_by{rand}[1..8]
@@ -201,8 +199,8 @@ class TController < ApplicationController
 
 	#get full content of a review
 	def expand()
-					#id = params['id'].scan(/review\/(\d*)/)[0]
-				  id = params['id']
+					id = params['id'].scan(/review\/(\d*)/)[0]
+				  #id = params['id']
 					type = params['type']
 					if type == "search" #expand a search result item
 					  #when type is search is like http://api.douban.com/book/subject/1103015
