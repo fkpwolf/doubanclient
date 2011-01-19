@@ -93,6 +93,7 @@ dc.test = function(){
 //did I need some namespace, like dc.test?
 mysay_bind = function(page){
 	page.find("#miniblog-area-submit").bind('click', function(){
+		 page.find("#response_msg").html("<img src='../images/loading.gif'>");
 		 $.ajax({
             type: 'get', url: '/t/miniblog', data: 'miniblog_content=' + $('#miniblog_content').val(),
 			success: function(){
@@ -107,7 +108,7 @@ mysay_bind = function(page){
 };
 
 //bind 'mine' menu
-my_menu_bind = function(root, menuJson) {
+my_menu_bind = function(rootNode, menuJson) {
 	$(menuJson).each(function(index, item){
 		var a = $("<div id='" + item.id +"' class='menu-button'><div class='sub-item'>" + item.label + "</div></div>");
 		if ( item.id === "most-popular-book-review" || item.id === "most-polular-movie-review"){
@@ -134,13 +135,13 @@ my_menu_bind = function(root, menuJson) {
 		            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
 					success: function(data) {
 						//$('#entries').html(data);
-						root.empty();
-						miniblog_binding(root, data);
+						rootNode.empty();
+						miniblog_binding(rootNode, data);
 					}
 				 });
 		    });
 		}
-		root.append(a);
+		rootNode.append(a);
 	});
 };
 

@@ -28,10 +28,11 @@ var hideBar = function() {
 	
   $(document).ready(init);
   
-  var menu_content = [{ id:'mail-box', label:'<%=t :my_mail_box%>'}, 
+  var menu_content = [
 											{id: 'most-popular-book-review', label:'<%=t :The_most_Popular_book_review%>'},
 											{id: 'most-polular-movie-review', label:'<%=t :The_most_Popular_movie_review%>'},
-											{id: 'contact-miniblog', label:'<%=t :some_mini_blog_nearby%>'}
+											{id: 'contact-miniblog', label:'<%=t :some_mini_blog_nearby%>'},
+											{id: 'my-collect', label:'<%=t :my_collect%>'}
 											];
   
   current_menu_id = '';
@@ -180,12 +181,13 @@ var hideBar = function() {
   <!--say something dialog-->
   <div id="miniblog-area" class='hidden'>
 	<div style="padding: 12px;">
-		<h4><%=t :SaySome_desc%></h4><div id='response_msg'></div>
+		<h4><%=t :SaySome_desc%></h4>
   		<textarea id='miniblog_content' name="miniblog_content"></textarea>
-		<input id='miniblog-area-submit' type="button" class="Butt"  value="<%=t :send%>"/>
+		<input id='miniblog-area-submit' type="button" class="Butt"  value="<%=t :send%>"/><span id='response_msg'></span>
 	</div>
   </div>
 
+	<!--search dialog-->
   <div id="search-area" class='hidden'>
 	<div style="padding: 12px;">
 		<h4><%=t :search_desc%></h4>
@@ -205,9 +207,9 @@ var hideBar = function() {
 <div class="footer">
 	any problem please send to fkpwolf At gmail.com
 	<br>
-	or submit <a href="http://code.google.com/p/doubanclient/issues/list">here</a>. Thanks!
-	<br><br><br>
-	zudou.net
+	<br>
+	zudou.net<br>
+	<img src="./images/HTML5_Badge_32.png"/>
 	<!--below is used for getting rid of toolbar at iPhone-->
 </div>
 
