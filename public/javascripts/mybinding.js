@@ -19,7 +19,6 @@ reviews_binding = function(root, data){
 	
 	root.find("div.entry-secondary").each( function(index){
 	  var entryDOM = data[index];
-	
 	  this.onclick = function() {
 		window.scrollTo(0, this.offsetTop);//no need setTimeout
 		
@@ -27,7 +26,7 @@ reviews_binding = function(root, data){
 		var c = $(entry).children(".content");
 		if(c[0].style.display === "none"){
 			$(c[0]).html(dc.template.content({'trans' : trans} ));
-			content_binding($(c[0]));// $(c[0]).bind(); is better.
+			content_binding($(c[0]), entryDOM);// $(c[0]).bind(); is better.
         } else{
 			$(c[0]).html(""); //not need unbind?
 		};
@@ -112,10 +111,12 @@ my_menu_bind = function(rootNode, menuJson) {
 	$(menuJson).each(function(index, item){
 		var a = $("<div id='" + item.id +"' class='menu-button'><div class='sub-item'>" + item.label + "</div></div>");
 		if ( item.id === "most-popular-book-review" || item.id === "most-polular-movie-review"){
+			var type = "book";
+			if(item.id === "most-polular-movie-review") type = "movie";
 			a.bind('click', function(){
 				$(document).trigger('LOAD_LIST');
 				$.ajax({
-		      type: 'post', url: '/t/get_popular_reviews', data: 'type=book',
+		      type: 'post', url: '/t/get_popular_reviews', data: 'type=' + type,
 					success: function(data) {
 						current_menu_id = 'menu44444';
 						var reviews = convert2Review(data.entry);
@@ -155,9 +156,9 @@ miniblog_binding = function(node, data){
 };
 
 //bind the "click entry add comment button" event
-content_binding = function(root){
+content_binding = function(root, entryDOM){
 	root.find('span.entry-comment').each( function(){
-    this.onclick = function() {
+    	this.onclick = function() {
 			  $(this).parent().parent().children(".action-area").toggle();
 				/*change color to be a active tab*/
 				if ($(this).hasClass("entry-comment-active")){
@@ -165,7 +166,7 @@ content_binding = function(root){
 				}else{
 		  		$(this).addClass("entry-comment-active");
 				}
-      };
+      	};
     });
 
     //bind the "I want it" event
@@ -186,6 +187,13 @@ content_binding = function(root){
 			alert("marked");
 			familyMemer.hasClassName('star-marked')
 		}
+	});
+	
+	//"goto douban" bind
+	root.find('span.entry-goto-douban').each( function(){
+		this.onclick = function(){
+				window.open(entryDOM.link.alternate); return false;
+		};
 	});
 };
 

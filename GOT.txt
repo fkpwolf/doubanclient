@@ -1,1 +1,3 @@
 1. there are 2 kind of way to create a widget: programtic and declare. For praogamtic, view is generated from json. For declare, view is taken from html, as dijit.Menu has done.
+
+haha

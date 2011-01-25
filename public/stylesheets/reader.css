@@ -77,6 +77,18 @@ root {
 					
 					font-size:90%
 	}
+	
+	.entry-goto-douban{
+					text-decoration:none;
+					background-color:transparent;
+					background-repeat:no-repeat;
+					line-height:15px;
+					padding:0 8px 0 16px;
+					position:relative;
+					vertical-align:baseline;
+					background-image:url(../images/douban.png);
+					font-size:90%
+	}
 
 	.entry-expand{
 					cursor:pointer;

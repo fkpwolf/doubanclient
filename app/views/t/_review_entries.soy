@@ -41,12 +41,11 @@
 /**
  * Greets a person and optionally a list of other people.
  * @param list The name of the person.
- * @param trans the translation list.
  */
 {template .reviews}
-  {call .head}
+  /*{call .head}
 		{param trans: $trans /}
-  {/call}
+  {/call}*/
   {foreach $entry in $list}
 		{call .review}
 		      {param entry: $entry /}
@@ -57,12 +56,11 @@
 /**
  * Greets a person and optionally a list of other people.
  * @param list The name of the person.
- * @param trans the translation list.
  */
 {template .searchResults}
-  {call .head}
+  /*{call .head}
 		{param trans: $trans /}
-  {/call}
+  {/call}*/
   {foreach $entry in $list}
 		{call .searchItem}
 		      {param entry: $entry /}
@@ -132,6 +130,7 @@
 			<div class="subject_id hidden"><%=h item.subject.link['self']%></div>
 			<span class="entry-comment link">{$trans.add_comment}</span>
 			<span class="entry-star link star-unmarked">{$trans.i_like_it}</span>
+			<span class="entry-goto-douban link">{$trans.goto_douban}</span>
 </div>
 
 <div class="action-area" style="display: none;">

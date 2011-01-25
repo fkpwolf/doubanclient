@@ -24,7 +24,8 @@ var hideBar = function() {
 	};
   //list all translation here will waste time. We should load just few data which is needful for specific template
 	//global variable.ugly.
-  trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>", "send" : "<%=t :send%>"};
+	//or iterate all translate word
+  trans = {"add_comment":"<%=t :add_comment%>", "i_like_it":"<%=t :i_like_it%>", "menu":"<%=t :menu%>", "send" : "<%=t :send%>", "goto_douban": "<%=t :goto_douban%>"};
 	
   $(document).ready(init);
   
@@ -38,8 +39,9 @@ var hideBar = function() {
   current_menu_id = '';
 
   function init(){
-    doFresh();
+    //doFresh();
     page_loaded();
+		$('#say-tab').trigger('click');
   };
 
 

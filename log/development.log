@@ -34932,3 +34932,1075 @@ Rendering rescues/layout (internal_server_error)
 Processing TController#miniblog (for 127.0.0.1 at 2011-01-19 17:08:36) [GET]
   Parameters: {"miniblog_content"=>"wocao"}
 Completed in 371ms (View: 6, DB: 0) | 201 Created [http://127.0.0.1/t/miniblog?miniblog_content=wocao]
+server starting... at:Fri Jan 21 15:54:54 +0800 2011
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-21 15:55:09) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 94ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-21 15:55:10) [GET]
+Rendering t/index
+Completed in 39ms (View: 38, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-21 15:55:11) [POST]
+  Parameters: {"id"=>"most-popular-book-review"}
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/t_controller.rb:242:in `get_popular_reviews'
+  app/controllers/t_controller.rb:242:in `refresh_entries'
+
+Rendered rescues/_trace (31.2ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-21 15:55:27) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 849ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-21 15:55:32) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (45.6ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 99ms (View: 1, DB: 46) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-21 15:55:41) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 873ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-21 16:27:42) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 1006ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-21 16:27:48) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (4.1ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 34ms (View: 1, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-21 16:27:51) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (4.1ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 97ms (View: 1, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 16:27:53) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473193", "type"=>"menu44444"}
+Completed in 120ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473193&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 16:28:05) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4581973", "type"=>"menu44444"}
+Completed in 176ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4581973&type=menu44444]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-21 17:14:20) [POST]
+  Parameters: {"search_criteria"=>"冯友兰", "subject_cat"=>"book"}
+Completed in 870ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:25) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/3410713", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (95.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:32) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1261729", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (29.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:33) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/2045166", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (97.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:35) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1064101", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (30.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:37) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1064101", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (98.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:54) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1001646", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (29.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:55) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1443887", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (99.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-21 17:14:57) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1443887", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (30.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+server starting... at:Tue Jan 25 09:29:20 +0800 2011
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-25 09:30:43) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=3bde065428760510b39a12fc79620f30&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 110ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-25 09:30:50) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 123ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:30:52) [GET]
+Rendering t/index
+Completed in 59ms (View: 58, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 09:30:52) [POST]
+  Parameters: {"id"=>"most-popular-book-review"}
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/t_controller.rb:242:in `get_popular_reviews'
+  app/controllers/t_controller.rb:242:in `refresh_entries'
+
+Rendered rescues/_trace (92.7ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 09:30:58) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 841ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:31:17) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (26.1ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 77ms (View: 1, DB: 26) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:31:19) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.4ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:31:21) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 30ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:31:24) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.7ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 94ms (View: 1, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:31:26) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:31:29) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.2ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 30ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:31:42) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582979", "type"=>"menu44444"}
+Completed in 194ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582979&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:32:07) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473193", "type"=>"menu44444"}
+Completed in 486ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473193&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:32:32) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582909", "type"=>"menu44444"}
+Completed in 144ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582909&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:42:25) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4472455", "type"=>"menu44444"}
+Completed in 1189ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4472455&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:42:29) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583097", "type"=>"menu44444"}
+Completed in 266ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583097&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:42:31) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473048", "type"=>"menu44444"}
+Completed in 204ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473048&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:42:33) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473175", "type"=>"menu44444"}
+Completed in 168ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473175&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 09:42:36) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583151", "type"=>"menu44444"}
+Completed in 241ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583151&type=menu44444]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:46:32) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 91ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 09:46:36) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.2ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 31ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 09:46:40) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 2125ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-25 09:47:14) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 198ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:47:14) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 09:47:14) [POST]
+  Parameters: {"id"=>"most-popular-book-review"}
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/t_controller.rb:242:in `get_popular_reviews'
+  app/controllers/t_controller.rb:242:in `refresh_entries'
+
+Rendered rescues/_trace (30.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:47:58) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 09:47:58) [POST]
+  Parameters: {"id"=>"most-popular-book-review"}
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/t_controller.rb:242:in `get_popular_reviews'
+  app/controllers/t_controller.rb:242:in `refresh_entries'
+
+Rendered rescues/_trace (30.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:54:18) [GET]
+Rendering t/index
+Completed in 13ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:54:21) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:54:26) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:55:37) [GET]
+Rendering t/index
+Completed in 12ms (View: 10, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 09:55:42) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 941ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:55:44) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-25 09:56:20) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 142ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 09:56:20) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 10:54:46) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 1032ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-25 10:54:58) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 80ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 10:54:58) [GET]
+Rendering t/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-25 10:55:00) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 84ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 10:55:00) [GET]
+Rendering t/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-25 10:55:07) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 955ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:55:09) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/2130190", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (30.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:55:15) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1103015", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (103.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:55:25) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1101158", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (30.6ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 10:58:06) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-25 10:58:11) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 1913ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:58:15) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/2148132", "type"=>"search"}
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/controllers/t_controller.rb:207:in `expand'
+
+Rendered rescues/_trace (30.4ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 10:59:07) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-25 10:59:12) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 868ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:59:14) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1313042", "type"=>"search"}
+
+NoMethodError (private method `scan' called for ["1313042"]:Array):
+  app/controllers/t_controller.rb:208:in `expand'
+
+Rendered rescues/_trace (98.5ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 10:59:34) [GET]
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-25 10:59:39) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 867ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:59:40) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/2148132", "type"=>"search"}
+Rendered t/_book_details (29.9ms)
+Completed in 155ms (View: 34, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/book/subject/2148132&type=search]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 10:59:44) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (42.8ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 101ms (View: 1, DB: 43) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:59:45) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4581286", "type"=>"menu44444"}
+Completed in 152ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4581286&type=menu44444]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-25 10:59:50) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 1011ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:59:52) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/2130190", "type"=>"search"}
+Rendered t/_book_details (2.7ms)
+Completed in 122ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/book/subject/2130190&type=search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:59:55) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/1103015", "type"=>"search"}
+Rendered t/_book_details (2.8ms)
+Completed in 161ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/book/subject/1103015&type=search]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 10:59:58) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.2ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 10:59:59) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582962", "type"=>"menu44444"}
+Completed in 122ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582962&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:00:02) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473193", "type"=>"menu44444"}
+Completed in 115ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473193&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:00:05) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4581948", "type"=>"menu44444"}
+Completed in 141ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4581948&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:00:07) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473131", "type"=>"menu44444"}
+Completed in 80ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473131&type=menu44444]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:06:38) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.5ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 35ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:06:40) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583097", "type"=>"menu44444"}
+Completed in 164ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583097&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:06:47) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4581969", "type"=>"menu44444"}
+Completed in 262ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4581969&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:07:32) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474014", "type"=>"menu44444"}
+Completed in 124ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4474014&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:09:37) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474309", "type"=>"menu44444"}
+
+OpenURI::HTTPError (404 Not Found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:277:in `open_http'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:616:in `buffer_open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:164:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `catch'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:132:in `open_uri'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:518:in `open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:30:in `open'
+  app/controllers/t_controller.rb:222:in `expand'
+
+Rendered rescues/_trace (33.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:09:43) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474309", "type"=>"menu44444"}
+
+OpenURI::HTTPError (404 Not Found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:277:in `open_http'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:616:in `buffer_open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:164:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `catch'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:132:in `open_uri'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:518:in `open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:30:in `open'
+  app/controllers/t_controller.rb:222:in `expand'
+
+Rendered rescues/_trace (34.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:09:51) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583151", "type"=>"menu44444"}
+Completed in 293ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583151&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:09:55) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474309", "type"=>"menu44444"}
+
+OpenURI::HTTPError (404 Not Found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:277:in `open_http'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:616:in `buffer_open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:164:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `catch'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:132:in `open_uri'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:518:in `open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:30:in `open'
+  app/controllers/t_controller.rb:222:in `expand'
+
+Rendered rescues/_trace (115.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:09:58) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473203", "type"=>"menu44444"}
+Completed in 220ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473203&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:13:13) [GET]
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:13:16) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.3ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 100ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:13:17) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582909", "type"=>"menu44444"}
+Completed in 335ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582909&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:13:22) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474014", "type"=>"menu44444"}
+Completed in 122ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4474014&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:14:30) [GET]
+Rendering t/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:14:32) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (4.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 107ms (View: 1, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:14:33) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583129", "type"=>"menu44444"}
+Completed in 221ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583129&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:15:10) [GET]
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:15:13) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.5ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 104ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:15:14) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473193", "type"=>"menu44444"}
+Completed in 218ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473193&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:16:40) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:16:42) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (4.0ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 34ms (View: 1, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:16:43) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473449", "type"=>"menu44444"}
+Completed in 129ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473449&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:16:52) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582489", "type"=>"menu44444"}
+Completed in 159ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582489&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:22:24) [GET]
+Rendering t/index
+Completed in 34ms (View: 32, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:22:27) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.2ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 122ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:22:28) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473131", "type"=>"menu44444"}
+Completed in 83ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473131&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:24:08) [GET]
+Rendering t/index
+Completed in 88ms (View: 86, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:24:11) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (39.0ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 173ms (View: 1, DB: 39) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:24:12) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474309", "type"=>"menu44444"}
+
+OpenURI::HTTPError (404 Not Found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:277:in `open_http'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:616:in `buffer_open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:164:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `catch'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:132:in `open_uri'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:518:in `open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:30:in `open'
+  app/controllers/t_controller.rb:222:in `expand'
+
+Rendered rescues/_trace (35.2ms)
+Rendered rescues/_request_and_response (0.4ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:24:16) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473175", "type"=>"menu44444"}
+Completed in 213ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473175&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:24:56) [GET]
+Rendering t/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:24:58) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.5ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 36ms (View: 1, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:24:59) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473203", "type"=>"menu44444"}
+Completed in 114ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473203&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:25:00) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473609", "type"=>"menu44444"}
+Completed in 122ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473609&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:26:36) [GET]
+Rendering t/index
+Completed in 12ms (View: 11, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:26:38) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.3ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 33ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:26:39) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473131", "type"=>"menu44444"}
+Completed in 86ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473131&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:26:42) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473173", "type"=>"menu44444"}
+Completed in 160ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473173&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:26:44) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582979", "type"=>"menu44444"}
+Completed in 187ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582979&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 11:30:38) [GET]
+Rendering t/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 11:30:40) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.2ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 95ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:30:40) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4581969", "type"=>"menu44444"}
+Completed in 85ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4581969&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:30:43) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474309", "type"=>"menu44444"}
+
+OpenURI::HTTPError (404 Not Found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:277:in `open_http'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:616:in `buffer_open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:164:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `catch'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:132:in `open_uri'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:518:in `open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:30:in `open'
+  app/controllers/t_controller.rb:222:in `expand'
+
+Rendered rescues/_trace (33.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:30:44) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473449", "type"=>"menu44444"}
+Completed in 115ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473449&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:30:46) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473150", "type"=>"menu44444"}
+Completed in 348ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473150&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:31:15) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583151", "type"=>"menu44444"}
+Completed in 152ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583151&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 11:31:19) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473118", "type"=>"menu44444"}
+Completed in 113ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473118&type=menu44444]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 13:34:24) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.1ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 94ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 13:36:32) [GET]
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 13:36:35) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.2ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 13:38:09) [GET]
+Rendering t/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 13:38:14) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 33ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:38:15) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582962", "type"=>"menu44444"}
+Completed in 147ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582962&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:38:24) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582151", "type"=>"menu44444"}
+Completed in 119ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582151&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 13:40:56) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 13:40:58) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (3.4ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 33ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:40:59) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582151", "type"=>"menu44444"}
+Completed in 1061ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582151&type=menu44444]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 13:44:44) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 13:45:03) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 13:45:05) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 32ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:45:06) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4582962", "type"=>"menu44444"}
+Completed in 124ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4582962&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:45:13) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473150", "type"=>"menu44444"}
+Completed in 116ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473150&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:45:46) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4581948", "type"=>"menu44444"}
+Completed in 116ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4581948&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:45:53) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473609", "type"=>"menu44444"}
+Completed in 117ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473609&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:45:54) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473173", "type"=>"menu44444"}
+Completed in 118ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473173&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:46:06) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473048", "type"=>"menu44444"}
+Completed in 187ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473048&type=menu44444]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 13:46:09) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4474309", "type"=>"menu44444"}
+
+OpenURI::HTTPError (404 Not Found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:277:in `open_http'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:616:in `buffer_open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:164:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `catch'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:162:in `open_loop'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:132:in `open_uri'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:518:in `open'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/open-uri.rb:30:in `open'
+  app/controllers/t_controller.rb:222:in `expand'
+
+Rendered rescues/_trace (33.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 13:46:27) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 1052ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 13:46:51) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 946ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#miniblog (for 127.0.0.1 at 2011-01-25 13:47:59) [GET]
+  Parameters: {"miniblog_content"=>"前些天还说今年都没有得过病，今天就感觉感冒了。"}
+Completed in 194ms (View: 1, DB: 0) | 201 Created [http://127.0.0.1/t/miniblog?miniblog_content=%E5%89%8D%E4%BA%9B%E5%A4%A9%E8%BF%98%E8%AF%B4%E4%BB%8A%E5%B9%B4%E9%83%BD%E6%B2%A1%E6%9C%89%E5%BE%97%E8%BF%87%E7%97%85%EF%BC%8C%E4%BB%8A%E5%A4%A9%E5%B0%B1%E6%84%9F%E8%A7%89%E6%84%9F%E5%86%92%E4%BA%86%E3%80%82]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 13:48:02) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 912ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 13:48:09) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 948ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 14:58:25) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 14:58:28) [POST]
+  Parameters: {"type"=>"movie"}
+  [4;35;1mCache Load (27.3ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='movie' and content_type='review') [0m
+Completed in 62ms (View: 1, DB: 27) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 14:58:30) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.1ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 30ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 14:58:32) [POST]
+  Parameters: {"type"=>"movie"}
+  [4;35;1mCache Load (2.6ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='movie' and content_type='review') [0m
+Completed in 35ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 14:58:36) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 95ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 14:58:38) [POST]
+  Parameters: {"type"=>"movie"}
+  [4;35;1mCache Load (2.6ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='movie' and content_type='review') [0m
+Completed in 37ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-25 15:02:53) [GET]
+Rendering t/index
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 15:02:55) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.3ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 95ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 15:02:57) [POST]
+  Parameters: {"type"=>"movie"}
+  [4;35;1mCache Load (2.5ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='movie' and content_type='review') [0m
+Completed in 35ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 15:02:59) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (3.2ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 90ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-25 15:03:01) [POST]
+  Parameters: {"type"=>"movie"}
+  [4;35;1mCache Load (2.6ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='movie' and content_type='review') [0m
+Completed in 38ms (View: 1, DB: 3) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-25 15:03:02) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4473189", "type"=>"menu44444"}
+Completed in 101ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4473189&type=menu44444]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 15:03:07) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 858ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]

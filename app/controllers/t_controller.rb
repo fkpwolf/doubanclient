@@ -199,8 +199,8 @@ class TController < ApplicationController
 
 	#get full content of a review
 	def expand()
-					id = params['id'].scan(/review\/(\d*)/)[0]
-				  #id = params['id']
+					#id = params['id'].scan(/review\/(\d*)/)[0]
+				  id = params['id']
 					type = params['type']
 					if type == "search" #expand a search result item
 					  #when type is search is like http://api.douban.com/book/subject/1103015
@@ -222,7 +222,7 @@ class TController < ApplicationController
   					open(	feed= "http://www.douban.com/j/review/#{id}/fullinfo?show_works=False") do |http|
   									response = http.read
   					end
-  					f = response.gsub(/review-panel.*form/,'')#just clear up response roughly
+  					f = response.gsub(/review-panel.*div/,'')#just clear up response roughly
   					respond_to do |format|
   									format.json { render :json => f }
   					end
