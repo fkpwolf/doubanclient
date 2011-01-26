@@ -36517,3 +36517,54 @@ Completed in 642ms (DB: 0) | 302 Found [http://127.0.0.1/]
 Processing TController#index (for 127.0.0.1 at 2011-01-26 16:11:26) [GET]
 Rendering t/index
 Completed in 58ms (View: 54, DB: 0) | 200 OK [http://127.0.0.1/t]
+server starting... at:Wed Jan 26 16:37:44 +0800 2011
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 16:38:03) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 683ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:38:16) [GET]
+Rendering t/index
+Completed in 57ms (View: 53, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:39:35) [GET]
+Rendering t/index
+Completed in 30ms (View: 24, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:43:50) [GET]
+Rendering t/index
+Completed in 33ms (View: 28, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:46:05) [GET]
+Rendering t/index
+Completed in 46ms (View: 42, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:47:20) [GET]
+Rendering t/index
+Completed in 32ms (View: 28, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:47:29) [GET]
+Rendering t/index
+Completed in 31ms (View: 27, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:48:02) [GET]
+Rendering t/index
+Completed in 30ms (View: 26, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#miniblog (for 127.0.0.1 at 2011-01-26 16:48:09) [GET]
+  Parameters: {"miniblog_content"=>"test"}
+Completed in 796ms (View: 6, DB: 0) | 201 Created [http://127.0.0.1/t/miniblog?miniblog_content=test]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:48:27) [GET]
+Rendering t/index
+Completed in 54ms (View: 47, DB: 0) | 200 OK [http://127.0.0.1/t]

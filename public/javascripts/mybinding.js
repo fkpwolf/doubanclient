@@ -85,10 +85,6 @@ reviews_binding = function(root, data){
 
 };
 
-dc.test = function(){
-				console.log("look, I have namespace");
-};
-
 //did I need some namespace, like dc.test?
 mysay_bind = function(page){
 	page.find("#miniblog-area-submit").bind('click', function(){
