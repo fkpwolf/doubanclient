@@ -320,13 +320,17 @@ background:none repeat scroll 0 0 #0063DC;
 border:medium none;
 color:#FFFFFF;
 font-family:inherit;
-font-size:12px;
+font-size:14px;
 font-weight:bold;
 padding:10px;
 text-decoration:none;
 text-shadow:0 -1px 0 transparent;
 white-space:nowrap;
 width:auto;
+border-bottom-left-radius: 4px 4px;
+border-bottom-right-radius: 4px 4px;
+border-top-left-radius: 4px 4px;
+border-top-right-radius: 4px 4px;
 }
 
 #search-area-submit{

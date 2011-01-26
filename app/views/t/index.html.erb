@@ -162,7 +162,7 @@ var hideBar = function() {
 				
 				<li id="logo_tab" class="unselected">
 					<a type="nav" href=".">
-						<p>&nbsp;<span style="color:white;background-color:red;"><%=t :app_name1%></span><span style="color:white;background-color:#006600;"><%=t:app_name2%></span>&nbsp;reload</p>
+						<p>&nbsp;<span style="color:white;background-color:red;"><%=t :app_name1%></span><span style="color:white;background-color:#006600;"><%=t:app_name2%></span>&nbsp;</p>
 					</a>
 				</li>
 				<li id="say-tab" class="unselected"><a type="nav" href="#search"><%=t :SaySome%></a></li>
@@ -185,7 +185,8 @@ var hideBar = function() {
 	<div style="padding: 12px;">
 		<h4><%=t :SaySome_desc%></h4>
   		<textarea id='miniblog_content' name="miniblog_content"></textarea>
-		<input id='miniblog-area-submit' type="button" class="Butt"  value="<%=t :send%>"/><span id='response_msg'></span>
+			<a id='miniblog-area-submit' type="button" class="Butt"><%=t :send%></a>
+			<span id='response_msg'></span>
 	</div>
   </div>
 
@@ -201,7 +202,7 @@ var hideBar = function() {
 			
 		</select>
 		<br>
-		<input id='search-area-submit' class="Butt" type="button" value="<%=t :Search%>"/>
+		<a id='search-area-submit' class="Butt" type="button"><%=t :Search%></a>
 	</div>
   </div>
 </div>
@@ -210,8 +211,8 @@ var hideBar = function() {
 	any problem please send to fkpwolf At gmail.com
 	<br>
 	<br>
-	zudou.net<br>
-	<img src="./images/HTML5_Badge_32.png"/>
+	zudou.net reload<br>
+	<img src="../images/HTML5_Badge_32.png"/>
 	<!--below is used for getting rid of toolbar at iPhone-->
 </div>
 

@@ -36004,3 +36004,262 @@ Completed in 101ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http:
 Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-25 15:03:07) [POST]
   Parameters: {"id"=>"contact-miniblog"}
 Completed in 858ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+server starting... at:Wed Jan 26 14:30:36 +0800 2011
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 14:32:32) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=8cd375c39a78c2c7a67a614acf6a4855&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 674ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:32:51) [GET]
+  Parameters: {"oauth_token"=>"8cd375c39a78c2c7a67a614acf6a4855"}
+  [4;36;1mVisitlog Create (0.0ms)[0m   [0;1mINSERT INTO "visitlogs" ("created_at", "updated_at", "uid", "last_visit", "ip") VALUES('2011-01-26 06:32:53', '2011-01-26 06:32:53', '1053491', '2011-01-26 14:32:53', '127.0.0.1')[0m
+Rendering t/index
+Completed in 1574ms (View: 94, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=8cd375c39a78c2c7a67a614acf6a4855]
+
+
+Processing TController#images to png (for 127.0.0.1 at 2011-01-26 14:32:54) [GET]
+  Parameters: {"id"=>"HTML5_Badge_32"}
+
+ActionController::UnknownAction (No action responded to images. Actions: bookmark_subject, contact_miniblog, continueAuth, create_review, expand, fetch_all, get_access_token, get_people, get_popular_reviews, get_review, get_subject, get_subjectJSON, get_top10_subject, index, menu, miniblog, refresh_cache, refresh_entries, reviews_of_a_book, and search):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TController#images to png (for 127.0.0.1 at 2011-01-26 14:33:17) [GET]
+  Parameters: {"id"=>"HTML5_Badge_32"}
+
+ActionController::UnknownAction (No action responded to images. Actions: bookmark_subject, contact_miniblog, continueAuth, create_review, expand, fetch_all, get_access_token, get_people, get_popular_reviews, get_review, get_subject, get_subjectJSON, get_top10_subject, index, menu, miniblog, refresh_cache, refresh_entries, reviews_of_a_book, and search):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TController#images to png (for 127.0.0.1 at 2011-01-26 14:33:18) [GET]
+  Parameters: {"id"=>"HTML5_Badge_32"}
+
+ActionController::UnknownAction (No action responded to images. Actions: bookmark_subject, contact_miniblog, continueAuth, create_review, expand, fetch_all, get_access_token, get_people, get_popular_reviews, get_review, get_subject, get_subjectJSON, get_top10_subject, index, menu, miniblog, refresh_cache, refresh_entries, reviews_of_a_book, and search):
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+  /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+  /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+  /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+  /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+  /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+
+Rendering rescues/layout (not_found)
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:34:59) [GET]
+  Parameters: {"oauth_token"=>"8cd375c39a78c2c7a67a614acf6a4855"}
+Rendering t/index
+Completed in 45ms (View: 42, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=8cd375c39a78c2c7a67a614acf6a4855]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 14:35:11) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 201ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:35:11) [GET]
+Rendering t/index
+Completed in 49ms (View: 44, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:35:13) [GET]
+Rendering t/index
+Completed in 23ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 14:35:41) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=816fa460f9d24ad1844eed22ed76e073&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 583ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:35:55) [GET]
+  Parameters: {"oauth_token"=>"816fa460f9d24ad1844eed22ed76e073"}
+  [4;35;1mVisitlog Create (1.0ms)[0m   [0mINSERT INTO "visitlogs" ("created_at", "updated_at", "uid", "last_visit", "ip") VALUES('2011-01-26 06:35:56', '2011-01-26 06:35:56', '1053491', '2011-01-26 14:35:56', '127.0.0.1')[0m
+Rendering t/index
+Completed in 1458ms (View: 19, DB: 1) | 200 OK [http://127.0.0.1/t/index?oauth_token=816fa460f9d24ad1844eed22ed76e073]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:36:28) [GET]
+Rendering t/index
+Completed in 45ms (View: 41, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 14:37:04) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 342ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:37:05) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 14:37:50) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (109.0ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 343ms (View: 6, DB: 109) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 14:37:52) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (5.0ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 223ms (View: 5, DB: 5) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-26 14:37:55) [GET]
+  Parameters: {"id"=>"http://api.douban.com/review/4583097", "type"=>"menu44444"}
+Completed in 848ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/review/4583097&type=menu44444]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 14:38:00) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (5.0ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 218ms (View: 9, DB: 5) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 14:43:47) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 370ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:43:48) [GET]
+Rendering t/index
+Completed in 24ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:46:24) [GET]
+Rendering t/index
+Completed in 22ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 14:46:38) [GET]
+Rendering t/index
+Completed in 22ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:02:40) [GET]
+Rendering t/index
+Completed in 24ms (View: 20, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:03:01) [GET]
+Rendering t/index
+Completed in 25ms (View: 20, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:03:19) [GET]
+Rendering t/index
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:03:22) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:03:29) [GET]
+Rendering t/index
+Completed in 25ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:03:31) [GET]
+Rendering t/index
+Completed in 25ms (View: 21, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:04:16) [GET]
+Rendering t/index
+Completed in 24ms (View: 20, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:04:40) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:04:57) [GET]
+Rendering t/index
+Completed in 24ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:07:02) [GET]
+Rendering t/index
+Completed in 42ms (View: 38, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:07:06) [GET]
+Rendering t/index
+Completed in 23ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:07:32) [GET]
+Rendering t/index
+Completed in 46ms (View: 42, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:07:35) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:08:53) [GET]
+Rendering t/index
+Completed in 41ms (View: 36, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:09:00) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:09:24) [GET]
+Rendering t/index
+Completed in 42ms (View: 37, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:09:31) [GET]
+Rendering t/index
+Completed in 29ms (View: 24, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#miniblog (for 127.0.0.1 at 2011-01-26 15:09:45) [GET]
+  Parameters: {"miniblog_content"=>"cough"}
+Completed in 273ms (View: 6, DB: 0) | 201 Created [http://127.0.0.1/t/miniblog?miniblog_content=cough]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:12:14) [GET]
+Rendering t/index
+Completed in 22ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 15:12:54) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (5.0ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 229ms (View: 5, DB: 5) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
