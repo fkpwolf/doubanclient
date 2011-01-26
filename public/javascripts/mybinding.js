@@ -201,6 +201,7 @@ search_bind = function(root){
 	root.find('#search-area-submit').bind('click', function(){
 		//$(document).trigger('LOAD_LIST');
 		//$('#entries').html("<img src='../images/loading.gif'>");
+		root.find("#search_resp").html("<img src='../images/loading.gif'>");
 		$.ajax({type: 'post', url: '/t/search', 
 			data: 'search_criteria=' + root.find('#search_criteria').val() + '&subject_cat=' + root.find('#subject_cat').val(),
 			success: function(data) {

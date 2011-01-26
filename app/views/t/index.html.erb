@@ -5,11 +5,7 @@
 	<meta name="viewport" content="width=320; initial-scale=1.0; maximum-scale=1.0; minimum-scale=0.6666" />
   <title>zudou</title>
 
-	<%=javascript_include_tag "jquery-1.4.2", :cache => true %>
-<script src="../javascripts/soyutils.js"></script>
-<script src="../javascripts/dc-template.js"></script>
-<script src="../javascripts/mybinding.js"></script>
-<script src="../javascripts/douban-api-parser.js"></script>
+	<%=javascript_include_tag "jquery-1.4.2","soyutils", "mybinding", "douban-api-parser", "dc-template", :cache => true %>
 
 <link rel="stylesheet" href="../stylesheets/reader.css" type="text/css">
 <link rel="stylesheet" href="../stylesheets/g.css" type="text/css">
@@ -184,7 +180,7 @@ var hideBar = function() {
   <div id="miniblog-area" class='hidden'>
 	<div style="padding: 12px;">
 		<h4><%=t :SaySome_desc%></h4>
-  		<textarea id='miniblog_content' name="miniblog_content"></textarea>
+  		<textarea id='miniblog_content' name="miniblog_content" rows='4' style="width:80%"></textarea>
 			<a id='miniblog-area-submit' type="button" class="Butt"><%=t :send%></a>
 			<span id='response_msg'></span>
 	</div>
@@ -202,16 +198,22 @@ var hideBar = function() {
 			
 		</select>
 		<br>
+		<br>
 		<a id='search-area-submit' class="Butt" type="button"><%=t :Search%></a>
+		<span id="search_resp" style="float:right; padding:10px;"></span>
 	</div>
   </div>
 </div>
 
+<br>
+<br>
+<br>
+
 <div class="footer">
-	any problem please send to fkpwolf At gmail.com
+	by fkpwolf
 	<br>
 	<br>
-	zudou.net reload<br>
+	zudou.net<br>
 	<img src="../images/HTML5_Badge_32.png"/>
 	<!--below is used for getting rid of toolbar at iPhone-->
 </div>

@@ -36263,3 +36263,257 @@ Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 15:12:54
   Parameters: {"type"=>"book"}
   [4;35;1mCache Load (5.0ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
 Completed in 229ms (View: 5, DB: 5) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 15:29:13) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 611ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:29:14) [GET]
+Rendering t/index
+Completed in 22ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:29:40) [GET]
+Rendering t/index
+Completed in 42ms (View: 38, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:39:21) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:39:58) [GET]
+Rendering t/index
+Completed in 44ms (View: 40, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:43:36) [GET]
+Rendering t/index
+Completed in 42ms (View: 38, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:43:52) [GET]
+Rendering t/index
+Completed in 31ms (View: 24, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 15:44:23) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (6.0ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 237ms (View: 6, DB: 6) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 15:44:37) [POST]
+  Parameters: {"type"=>"book"}
+  [4;35;1mCache Load (146.0ms)[0m   [0mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 383ms (View: 6, DB: 146) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#get_popular_reviews (for 127.0.0.1 at 2011-01-26 15:44:41) [POST]
+  Parameters: {"type"=>"book"}
+  [4;36;1mCache Load (4.0ms)[0m   [0;1mSELECT * FROM "caches" WHERE (subject='book' and content_type='review') [0m
+Completed in 248ms (View: 9, DB: 4) | 200 OK [http://127.0.0.1/t/get_popular_reviews]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-01-26 15:44:46) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 2916ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:45:03) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2341ms (View: 10, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#expand (for 127.0.0.1 at 2011-01-26 15:45:11) [GET]
+  Parameters: {"id"=>"http://api.douban.com/book/subject/2130190", "type"=>"search"}
+Rendered t/_book_details (14.0ms)
+Completed in 451ms (View: 30, DB: 0) | 200 OK [http://127.0.0.1/t/expand?id=http://api.douban.com/book/subject/2130190&type=search]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:45:18) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2272ms (View: 8, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:48:28) [GET]
+Rendering t/index
+Completed in 54ms (View: 51, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:48:33) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2276ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:49:43) [GET]
+Rendering t/index
+Completed in 42ms (View: 37, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:49:48) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2881ms (View: 10, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:50:39) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:50:47) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2296ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:50:53) [GET]
+Rendering t/index
+Completed in 21ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:51:35) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:51:41) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2508ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:51:45) [GET]
+Rendering t/index
+Completed in 24ms (View: 20, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:51:52) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2270ms (View: 9, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:52:45) [GET]
+Rendering t/index
+Completed in 173ms (View: 64, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:52:53) [GET]
+Rendering t/index
+Completed in 23ms (View: 19, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:55:02) [GET]
+Rendering t/index
+Completed in 41ms (View: 36, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:55:09) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2512ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:55:49) [GET]
+Rendering t/index
+Completed in 42ms (View: 38, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:55:56) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2314ms (View: 18, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:56:02) [GET]
+Rendering t/index
+Completed in 24ms (View: 20, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:56:07) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2423ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:56:29) [GET]
+Rendering t/index
+Completed in 42ms (View: 36, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#search (for 127.0.0.1 at 2011-01-26 15:56:48) [POST]
+  Parameters: {"search_criteria"=>"java", "subject_cat"=>"book"}
+Completed in 2895ms (View: 7, DB: 0) | 200 OK [http://127.0.0.1/t/search]
+
+
+Processing TController#miniblog (for 127.0.0.1 at 2011-01-26 15:56:58) [GET]
+  Parameters: {"miniblog_content"=>"good!"}
+Completed in 539ms (View: 6, DB: 0) | 201 Created [http://127.0.0.1/t/miniblog?miniblog_content=good!]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:57:43) [GET]
+Rendering t/index
+Completed in 47ms (View: 42, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 15:59:26) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 318ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 15:59:27) [GET]
+Rendering t/index
+Completed in 22ms (View: 17, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:01:01) [GET]
+Rendering t/index
+Completed in 41ms (View: 36, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:02:32) [GET]
+Rendering t/index
+Completed in 200ms (View: 49, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:03:24) [GET]
+Rendering t/index
+Completed in 24ms (View: 20, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:03:38) [GET]
+Rendering t/index
+Completed in 45ms (View: 41, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:08:29) [GET]
+Rendering t/index
+Completed in 175ms (View: 46, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:09:26) [GET]
+Rendering t/index
+Completed in 31ms (View: 27, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:09:41) [GET]
+Rendering t/index
+Completed in 30ms (View: 25, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:10:56) [GET]
+Rendering t/index
+Completed in 205ms (View: 201, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:11:10) [GET]
+Rendering t/index
+Completed in 51ms (View: 46, DB: 0) | 200 OK [http://127.0.0.1/t]
+
+
+Processing DController#index (for 127.0.0.1 at 2011-01-26 16:11:25) [GET]
+Redirected to http://127.0.0.1:3000/t
+Completed in 642ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-01-26 16:11:26) [GET]
+Rendering t/index
+Completed in 58ms (View: 54, DB: 0) | 200 OK [http://127.0.0.1/t]
