@@ -138,6 +138,19 @@ my_menu_bind = function(rootNode, menuJson) {
 				 });
 		    });
 		}
+		
+		if(item.id==='my-collect'){
+			a.bind('click', function(){
+			  $(document).trigger('LOAD_LIST');
+				$.ajax({
+		            type: 'post', url: '/t/refresh_entries', data: 'id=' + this.id,
+					success: function(data) {
+						rootNode.empty();
+						bookmark_binding(rootNode, data);
+					}
+				 });
+		    });
+		}
 		rootNode.append(a);
 	});
 };
@@ -147,6 +160,15 @@ miniblog_binding = function(node, data){
 		var a = $("<div class='entry'><div class='entry-secondary'><div class='entry-title'> " 
 			+ item.author.name +"</div><span class='entry-secondary-snippet'>"
 			+ item.title + "</span></div></div>");
+		node.append(a);
+	});
+};
+
+bookmark_binding = function(node, data){
+	$(data).each(function(index, item){
+		var a = $("<div class='entry'><div class='entry-secondary'><div class='entry-title'> " 
+			+ item.subject.title +"</div><span class='entry-secondary-snippet'>ISBN: "
+			+ item.subject.attribute.isbn13.match(/\d{1,4}/g).join("-") + "/" + item.subject.attribute.publisher + "</span></div></div>");
 		node.append(a);
 	});
 };

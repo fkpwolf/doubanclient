@@ -270,7 +270,25 @@ module Douban
              @author=Author.new(author.to_s) if author
            end
         end
-
+        
+        class Bookmark
+           class <<self
+             def attr_names
+               [
+                :subject
+               ]
+              end
+            end
+            attr_names.each do |attr|
+              attr_accessor attr
+            end
+            def initialize(atom)
+              atom = atom.to_s.gsub('db:', '') ####ri,,,,,,
+              doc=REXML::Document.new(atom)
+              subject=REXML::XPath.first(doc,"//entry/subject")
+							@subject=Subject.new(subject.to_s) if subject
+						end
+         end
 
 
 end

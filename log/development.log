@@ -36568,3 +36568,706 @@ Completed in 796ms (View: 6, DB: 0) | 201 Created [http://127.0.0.1/t/miniblog?m
 Processing TController#index (for 127.0.0.1 at 2011-01-26 16:48:27) [GET]
 Rendering t/index
 Completed in 54ms (View: 47, DB: 0) | 200 OK [http://127.0.0.1/t]
+server starting... at:Sat Feb 26 10:20:30 +0800 2011
+
+
+Processing DController#index (for 127.0.0.1 at 2011-02-26 10:20:40) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=2a399e4b4a3520d27eacdae1de9f6276&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 81ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 10:20:44) [GET]
+  Parameters: {"oauth_token"=>"2a399e4b4a3520d27eacdae1de9f6276"}
+
+OAuth::Unauthorized (400 Bad Request):
+  oauth (0.3.6) lib/oauth/consumer.rb:200:in `token_request'
+  oauth (0.3.6) lib/oauth/tokens/request_token.rb:18:in `get_access_token'
+  app/controllers/t_controller.rb:161:in `continueAuth'
+  app/controllers/t_controller.rb:27:in `index'
+
+Rendered rescues/_trace (32.5ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-02-26 10:20:54) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=2f07dca3a8468c388d1795eaf8d3a4a8&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 1079ms (DB: 0) | 302 Found [http://localhost/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 10:20:57) [GET]
+  Parameters: {"oauth_token"=>"2f07dca3a8468c388d1795eaf8d3a4a8"}
+
+OAuth::Unauthorized (400 Bad Request):
+  oauth (0.3.6) lib/oauth/consumer.rb:200:in `token_request'
+  oauth (0.3.6) lib/oauth/tokens/request_token.rb:18:in `get_access_token'
+  app/controllers/t_controller.rb:161:in `continueAuth'
+  app/controllers/t_controller.rb:27:in `index'
+
+Rendered rescues/_trace (31.8ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing DController#index (for 127.0.0.1 at 2011-02-26 10:21:18) [GET]
+Redirected to http://www.douban.com/service/auth/authorize?oauth_token=295bacc05b1c02497c130641115406db&oauth_callback=http://127.0.0.1:3000/t/index
+Completed in 73ms (DB: 0) | 302 Found [http://127.0.0.1/]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 10:21:20) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+  [4;36;1mVisitlog Create (0.4ms)[0m   [0;1mINSERT INTO "visitlogs" ("created_at", "updated_at", "uid", "last_visit", "ip") VALUES('2011-02-26 02:21:20', '2011-02-26 02:21:20', '1053491', '2011-02-26 10:21:20', '127.0.0.1')[0m
+Rendering t/index
+Completed in 257ms (View: 49, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:21:25) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 799ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:21:28) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 802ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:21:38) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 815ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#my_collect (for 127.0.0.1 at 2011-02-26 10:35:46) [GET]
+  Parameters: {"user_id"=>"1053491"}
+Completed in 79ms (View: 1, DB: 0) | 200 OK [http://localhost/t/my_collect?user_id=1053491]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 10:37:31) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:37:46) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+NameError (undefined local variable or method `book' for #<TController:0x1046e2cd8>):
+  app/controllers/t_controller.rb:294:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (31.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:38:30) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 511ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:40:01) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 285ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:43:24) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+REXML::UndefinedNamespaceException (Undefined prefix db found):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/baseparser.rb:389:in `pull'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/set.rb:195:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/set.rb:195:in `each_key'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/set.rb:195:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/baseparser.rb:387:in `pull'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/treeparser.rb:22:in `parse'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:227:in `build'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:43:in `initialize'
+  app/controllers/douban.rb:25:in `new'
+  app/controllers/douban.rb:25:in `initialize'
+  app/controllers/t_controller.rb:293:in `new'
+  app/controllers/t_controller.rb:293:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (103.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:44:25) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 637ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:51:40) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+NoMethodError (undefined method `element' for <entry> ... </>:REXML::Element):
+  app/controllers/t_controller.rb:294:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:52:05) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 665ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:52:42) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1043ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:55:30) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 976ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 10:57:20) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 10:57:26) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1371ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 17:55:41) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1363ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 17:58:35) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1148ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:00:22) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 844ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:00:41) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 3328ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:01:53) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1423ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:20:32) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+NameError (uninitialized constant TController::Subject):
+  app/controllers/t_controller.rb:296:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (32.4ms)
+Rendered rescues/_request_and_response (0.6ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:21:11) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 2946ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:23:08) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+ArgumentError (wrong number of arguments (1 for 0)):
+  app/controllers/t_controller.rb:294:in `elements'
+  app/controllers/t_controller.rb:294:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (32.0ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:24:22) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1296ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:25:11) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1348ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:26:03) [POST]
+  Parameters: {"id"=>"contact-miniblog"}
+Completed in 1360ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:26:06) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1330ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:27:30) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 3249ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:28:43) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1324ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:37:15) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 705ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:37:47) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/controllers/t_controller.rb:295:in `get_elements'
+  app/controllers/t_controller.rb:295:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (31.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:38:47) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 666ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:38:57) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+REXML::ParseException (#<RuntimeError: attempted adding second root element to document>
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:92:in `<<'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:868:in `add'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/child.rb:21:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parent.rb:13:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:59:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:866:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:866:in `add'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:297:in `add_element'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:99:in `add_element'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/treeparser.rb:33:in `parse'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:227:in `build'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:43:in `initialize'
+/Volumes/xwork/dev/doubanclient/app/controllers/douban.rb:25:in `new'
+/Volumes/xwork/dev/doubanclient/app/controllers/douban.rb:25:in `initialize'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:298:in `new'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:298:in `my_collect'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:292:in `my_collect'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:250:in `refresh_entries'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/fan/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/fan/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+...
+attempted adding second root element to document
+Line: 
+Position: 
+Last 80 unconsumed characters:
+ 			<id>http://api.douban.com/book/subject/1440972</id> 			<title>博尔赫斯小):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/treeparser.rb:92:in `parse'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:227:in `build'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:43:in `initialize'
+  app/controllers/douban.rb:25:in `new'
+  app/controllers/douban.rb:25:in `initialize'
+  app/controllers/t_controller.rb:298:in `new'
+  app/controllers/t_controller.rb:298:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (34.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:39:41) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 461ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:39:50) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+REXML::ParseException (#<RuntimeError: attempted adding second root element to document>
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:92:in `<<'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:868:in `add'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/child.rb:21:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parent.rb:13:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:59:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:866:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:866:in `add'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/element.rb:297:in `add_element'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:99:in `add_element'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/treeparser.rb:33:in `parse'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:227:in `build'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:43:in `initialize'
+/Volumes/xwork/dev/doubanclient/app/controllers/douban.rb:25:in `new'
+/Volumes/xwork/dev/doubanclient/app/controllers/douban.rb:25:in `initialize'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:298:in `new'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:298:in `my_collect'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:292:in `my_collect'
+/Volumes/xwork/dev/doubanclient/app/controllers/t_controller.rb:250:in `refresh_entries'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `send'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:1331:in `perform_action_without_filters'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/fan/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/fan/.gem/ruby/1.8/gems/activesupport-2.3.8/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/flash.rb:151:in `perform_action'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `send'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:532:in `process_without_filters'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/filters.rb:606:in `process'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:391:in `process'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/base.rb:386:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/routing/route_set.rb:438:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:87:in `dispatch'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:121:in `_call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:130:in `build_middleware_stack'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:29:in `call'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:9:in `cache'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/query_cache.rb:28:in `call'
+/Users/fan/.gem/ruby/1.8/gems/activerecord-2.3.8/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/string_coercion.rb:25:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/head.rb:9:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/params_parser.rb:15:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/session/cookie_store.rb:99:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/failsafe.rb:26:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `synchronize'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/lock.rb:11:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:114:in `call'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/reloader.rb:34:in `run'
+/Users/fan/.gem/ruby/1.8/gems/actionpack-2.3.8/lib/action_controller/dispatcher.rb:108:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/static.rb:31:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:47:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `each'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/urlmap.rb:41:in `call'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/rails/rack/log_tailer.rb:17:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/content_length.rb:13:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/chunked.rb:15:in `call'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:67:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/Users/fan/.gem/ruby/1.8/gems/rack-1.1.0/lib/rack/handler/mongrel.rb:38:in `run'
+/Library/Ruby/Gems/1.8/gems/rails-2.3.8/lib/commands/server.rb:111
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/Library/Ruby/Site/1.8/rubygems/custom_require.rb:31:in `require'
+script/server:3
+...
+attempted adding second root element to document
+Line: 
+Position: 
+Last 80 unconsumed characters:
+ 			<id>http://api.douban.com/book/subject/1440972</id> 			<title>博尔赫斯小):
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/parsers/treeparser.rb:92:in `parse'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:227:in `build'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/document.rb:43:in `initialize'
+  app/controllers/douban.rb:25:in `new'
+  app/controllers/douban.rb:25:in `initialize'
+  app/controllers/t_controller.rb:298:in `new'
+  app/controllers/t_controller.rb:298:in `my_collect'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/rexml/xpath.rb:53:in `each'
+  app/controllers/t_controller.rb:292:in `my_collect'
+  app/controllers/t_controller.rb:250:in `refresh_entries'
+
+Rendered rescues/_trace (35.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:40:28) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 751ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:40:34) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 325ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:40:47) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1394ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:42:23) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1324ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:44:43) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1517ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+server starting... at:Sat Feb 26 18:49:47 +0800 2011
+
+
+Processing ApplicationController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:49:52) [POST]
+  Parameters: {"id"=>"my-collect"}
+
+SyntaxError (/Volumes/xwork/dev/doubanclient/app/controllers/douban.rb:293: syntax error, unexpected $end, expecting kEND):
+  app/controllers/t_controller.rb:3
+
+Rendered rescues/_trace (93.6ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+server starting... at:Sat Feb 26 18:50:26 +0800 2011
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:50:30) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1243ms (View: 4, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:50:52) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 6519ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:54:19) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1174ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:58:09) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1301ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:58:21) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1230ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 18:59:17) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 18:59:21) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 18:59:23) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 18:59:25) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1232ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:01:34) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:01:36) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 2347ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+server starting... at:Sat Feb 26 19:04:34 +0800 2011
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:04:40) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 15ms (View: 13, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:04:42) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1284ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:06:07) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:06:10) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1633ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:06:28) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:06:30) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 1330ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:07:31) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:07:35) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 4813ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:37:27) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:37:30) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 5668ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:38:41) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:38:43) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 7251ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 19:39:15) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 19:39:17) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 4666ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#index (for 127.0.0.1 at 2011-02-26 20:19:32) [GET]
+  Parameters: {"oauth_token"=>"295bacc05b1c02497c130641115406db"}
+Rendering t/index
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://127.0.0.1/t/index?oauth_token=295bacc05b1c02497c130641115406db]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 20:19:34) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 5835ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]
+
+
+Processing TController#refresh_entries (for 127.0.0.1 at 2011-02-26 20:25:44) [POST]
+  Parameters: {"id"=>"my-collect"}
+Completed in 7219ms (View: 1, DB: 0) | 200 OK [http://127.0.0.1/t/refresh_entries]

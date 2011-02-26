@@ -246,6 +246,8 @@ class TController < ApplicationController
       get_popular_reviews('movie')
     when "back-to-feeds"
       menu
+    when "my-collect"
+      my_collect
     end
   end
   
@@ -279,7 +281,25 @@ class TController < ApplicationController
     
     #render :partial => 'contact_miniblog'
     render :json => @miniblogs.to_json
+  end
+  
+  def my_collect(user_id="@me")
+    resp=get_access_token().get("/people/#{url_encode(user_id.to_s)}/collection?cat=book&status=wish&max-results=100")
+    if resp.code=="200"
+      atom=resp.body
+      doc=REXML::Document.new(atom)
+      @my_collect=[]
+      REXML::XPath.each(doc,"//feed/entry") do |entry|
+        s=Douban::Bookmark.new(entry.to_s);
+        @my_collect<<s
+      end
+      @my_collect
+    else
+      puts "----wori, find error" << resp.body
+      nil
+    end
     
+    render :json => @my_collect.to_json
   end
   
   
