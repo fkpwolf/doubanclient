@@ -10,3 +10,8 @@ export GEM_HOME=/home/fkpwolf/.gem/ruby/1.8/gems
 
 java -jar ./closure-templates-for-javascript-latest/SoyToJsSrcCompiler.jar  --outputPathFormat ./public/javascripts/dc-template.js ./app/views/t/_review_entries.soy
 
+========================DEPLOY=====================
+1. git clone https://github.com/fkpwolf/doubanclient.git
+
+2.You can reload the config file by typing "touch tmp/restart.txt" in your base directory.
+
